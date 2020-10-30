@@ -85,8 +85,6 @@ private:
 
    std::string dnnfile_;
 
-   Hammer::Hammer hammer;
-
    const vector<string> parName = {"a0", "a1", "a2", "b0", "b1", "b2", "c1", "c2", "d0", "d1", "d2"};
 //   
    const vector<string> _FFErrNames = {"delta_a0","delta_a1","delta_a2","delta_b0","delta_b1","delta_b2","delta_c1","delta_c2","delta_d0","delta_d1","delta_d2"};

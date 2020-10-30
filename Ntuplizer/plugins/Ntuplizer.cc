@@ -120,9 +120,6 @@ Ntuplizer::Ntuplizer(const edm::ParameterSet& iConfig):
     nBranches_->q2_nocut = fs->make<TH1F>("q2_nocut", "q2 before any cut", 40, 0, 15);
   }
 
-  if(runFlags["useHammer"]){
-    nBranches_->hammer_width = fs->make<TH1F>("hammer_width", "Hammer width", 24, 0, 24);  
-  }
 
   /* Histogram for genParticles */ 
   if (runFlags["doGenHist"]){

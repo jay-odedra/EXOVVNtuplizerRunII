@@ -74,7 +74,7 @@ process.options  = cms.untracked.PSet(
                      allowUnscheduled = cms.untracked.bool(True),
                      )
 
-#process.options.numberOfThreads=cms.untracked.uint32(2)
+process.options.numberOfThreads=cms.untracked.uint32(2)
 
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(options.maxEvents) )
 

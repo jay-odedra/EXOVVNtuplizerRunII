@@ -345,38 +345,6 @@ void NtupleBranches::branch( std::map< std::string, bool >& runFlags ){
     tree_->Branch("JpsiMu_B_phi_gen", &JpsiMu_B_phi_gen);
     tree_->Branch("JpsiMu_B_mass_gen", &JpsiMu_B_mass_gen);
 
-    tree_->Branch("JpsiMu_hammer_ff", &JpsiMu_hammer_ff);
-    tree_->Branch("JpsiMu_hammer_ebe", &JpsiMu_hammer_ebe);
-    tree_->Branch("JpsiMu_hammer_ebe_toy", &JpsiMu_hammer_ebe_toy);
-    //    tree_->Branch("JpsiMu_hammer_ebe_up", &JpsiMu_hammer_ebe_up);
-    //    tree_->Branch("JpsiMu_hammer_ebe_down", &JpsiMu_hammer_ebe_down);
-    //    tree_->Branch("JpsiMu_hammer_ebe_rate_up", &JpsiMu_hammer_ebe_rate_up);
-    //    tree_->Branch("JpsiMu_hammer_ebe_rate_down", &JpsiMu_hammer_ebe_rate_down);
-    tree_->Branch("JpsiMu_hammer_ebe_a0_up", &JpsiMu_hammer_ebe_a0_up);
-    tree_->Branch("JpsiMu_hammer_ebe_a0_down", &JpsiMu_hammer_ebe_a0_down);
-    tree_->Branch("JpsiMu_hammer_ebe_a1_up", &JpsiMu_hammer_ebe_a1_up);
-    tree_->Branch("JpsiMu_hammer_ebe_a1_down", &JpsiMu_hammer_ebe_a1_down);
-    tree_->Branch("JpsiMu_hammer_ebe_a2_up", &JpsiMu_hammer_ebe_a2_up);
-    tree_->Branch("JpsiMu_hammer_ebe_a2_down", &JpsiMu_hammer_ebe_a2_down);
-
-    tree_->Branch("JpsiMu_hammer_ebe_b0_up", &JpsiMu_hammer_ebe_b0_up);
-    tree_->Branch("JpsiMu_hammer_ebe_b0_down", &JpsiMu_hammer_ebe_b0_down);
-    tree_->Branch("JpsiMu_hammer_ebe_b1_up", &JpsiMu_hammer_ebe_b1_up);
-    tree_->Branch("JpsiMu_hammer_ebe_b1_down", &JpsiMu_hammer_ebe_b1_down);
-    tree_->Branch("JpsiMu_hammer_ebe_b2_up", &JpsiMu_hammer_ebe_b2_up);
-    tree_->Branch("JpsiMu_hammer_ebe_b2_down", &JpsiMu_hammer_ebe_b2_down);
-
-    tree_->Branch("JpsiMu_hammer_ebe_c1_up", &JpsiMu_hammer_ebe_c1_up);
-    tree_->Branch("JpsiMu_hammer_ebe_c1_down", &JpsiMu_hammer_ebe_c1_down);
-    tree_->Branch("JpsiMu_hammer_ebe_c2_up", &JpsiMu_hammer_ebe_c2_up);
-    tree_->Branch("JpsiMu_hammer_ebe_c2_down", &JpsiMu_hammer_ebe_c2_down);
-
-    tree_->Branch("JpsiMu_hammer_ebe_d0_up", &JpsiMu_hammer_ebe_d0_up);
-    tree_->Branch("JpsiMu_hammer_ebe_d0_down", &JpsiMu_hammer_ebe_d0_down);
-    tree_->Branch("JpsiMu_hammer_ebe_d1_up", &JpsiMu_hammer_ebe_d1_up);
-    tree_->Branch("JpsiMu_hammer_ebe_d1_down", &JpsiMu_hammer_ebe_d1_down);
-    tree_->Branch("JpsiMu_hammer_ebe_d2_up", &JpsiMu_hammer_ebe_d2_up);
-    tree_->Branch("JpsiMu_hammer_ebe_d2_down", &JpsiMu_hammer_ebe_d2_down);
   }
 
 
@@ -583,38 +551,6 @@ void NtupleBranches::branch( std::map< std::string, bool >& runFlags ){
     tree_->Branch("JpsiTau_B_phi_gen", &JpsiTau_B_phi_gen);
     tree_->Branch("JpsiTau_B_mass_gen", &JpsiTau_B_mass_gen);
 
-    tree_->Branch("JpsiTau_hammer_ff", &JpsiTau_hammer_ff);
-    tree_->Branch("JpsiTau_hammer_ebe", &JpsiTau_hammer_ebe);
-    tree_->Branch("JpsiTau_hammer_ebe_toy", &JpsiTau_hammer_ebe_toy);
-    //    tree_->Branch("JpsiTau_hammer_ebe_up", &JpsiTau_hammer_ebe_up);
-    //    tree_->Branch("JpsiTau_hammer_ebe_down", &JpsiTau_hammer_ebe_down);
-    //    tree_->Branch("JpsiTau_hammer_ebe_rate_up", &JpsiTau_hammer_ebe_rate_up);
-    //    tree_->Branch("JpsiTau_hammer_ebe_rate_down", &JpsiTau_hammer_ebe_rate_down);
-    tree_->Branch("JpsiTau_hammer_ebe_a0_up", &JpsiTau_hammer_ebe_a0_up);
-    tree_->Branch("JpsiTau_hammer_ebe_a0_down", &JpsiTau_hammer_ebe_a0_down);
-    tree_->Branch("JpsiTau_hammer_ebe_a1_up", &JpsiTau_hammer_ebe_a1_up);
-    tree_->Branch("JpsiTau_hammer_ebe_a1_down", &JpsiTau_hammer_ebe_a1_down);
-    tree_->Branch("JpsiTau_hammer_ebe_a2_up", &JpsiTau_hammer_ebe_a2_up);
-    tree_->Branch("JpsiTau_hammer_ebe_a2_down", &JpsiTau_hammer_ebe_a2_down);
-
-    tree_->Branch("JpsiTau_hammer_ebe_b0_up", &JpsiTau_hammer_ebe_b0_up);
-    tree_->Branch("JpsiTau_hammer_ebe_b0_down", &JpsiTau_hammer_ebe_b0_down);
-    tree_->Branch("JpsiTau_hammer_ebe_b1_up", &JpsiTau_hammer_ebe_b1_up);
-    tree_->Branch("JpsiTau_hammer_ebe_b1_down", &JpsiTau_hammer_ebe_b1_down);
-    tree_->Branch("JpsiTau_hammer_ebe_b2_up", &JpsiTau_hammer_ebe_b2_up);
-    tree_->Branch("JpsiTau_hammer_ebe_b2_down", &JpsiTau_hammer_ebe_b2_down);
-
-    tree_->Branch("JpsiTau_hammer_ebe_c1_up", &JpsiTau_hammer_ebe_c1_up);
-    tree_->Branch("JpsiTau_hammer_ebe_c1_down", &JpsiTau_hammer_ebe_c1_down);
-    tree_->Branch("JpsiTau_hammer_ebe_c2_up", &JpsiTau_hammer_ebe_c2_up);
-    tree_->Branch("JpsiTau_hammer_ebe_c2_down", &JpsiTau_hammer_ebe_c2_down);
-
-    tree_->Branch("JpsiTau_hammer_ebe_d0_up", &JpsiTau_hammer_ebe_d0_up);
-    tree_->Branch("JpsiTau_hammer_ebe_d0_down", &JpsiTau_hammer_ebe_d0_down);
-    tree_->Branch("JpsiTau_hammer_ebe_d1_up", &JpsiTau_hammer_ebe_d1_up);
-    tree_->Branch("JpsiTau_hammer_ebe_d1_down", &JpsiTau_hammer_ebe_d1_down);
-    tree_->Branch("JpsiTau_hammer_ebe_d2_up", &JpsiTau_hammer_ebe_d2_up);
-    tree_->Branch("JpsiTau_hammer_ebe_d2_down", &JpsiTau_hammer_ebe_d2_down);
 
   }
 
@@ -1444,42 +1380,6 @@ void NtupleBranches::reset( void ){
   JpsiMu_B_phi_gen.clear();
   JpsiMu_B_mass_gen.clear();
 
-  JpsiMu_hammer_ff.clear();
-  JpsiMu_hammer_ebe.clear();
-  JpsiMu_hammer_ebe_toy.clear();
-  //  JpsiMu_hammer_ebe_up.clear();
-  //  JpsiMu_hammer_ebe_down.clear();
-  //  JpsiMu_hammer_ebe_rate_up.clear();
-//  JpsiMu_hammer_ebe_rate_down.clear();
-  JpsiMu_hammer_ebe_a0_up.clear();
-  JpsiMu_hammer_ebe_a0_down.clear();
-  JpsiMu_hammer_ebe_a1_up.clear();
-  JpsiMu_hammer_ebe_a1_down.clear();
-  JpsiMu_hammer_ebe_a2_up.clear();
-  JpsiMu_hammer_ebe_a2_down.clear();
-  
-  JpsiMu_hammer_ebe_b0_up.clear();
-  JpsiMu_hammer_ebe_b0_down.clear();
-  JpsiMu_hammer_ebe_b1_up.clear();
-  JpsiMu_hammer_ebe_b1_down.clear();
-  JpsiMu_hammer_ebe_b2_up.clear();
-  JpsiMu_hammer_ebe_b2_down.clear();
-  
-  JpsiMu_hammer_ebe_c1_up.clear();
-  JpsiMu_hammer_ebe_c1_down.clear();
-  JpsiMu_hammer_ebe_c2_up.clear();
-  JpsiMu_hammer_ebe_c2_down.clear();
-  
-  JpsiMu_hammer_ebe_d0_up.clear();
-  JpsiMu_hammer_ebe_d0_down.clear();
-  JpsiMu_hammer_ebe_d1_up.clear();
-  JpsiMu_hammer_ebe_d1_down.clear();
-  JpsiMu_hammer_ebe_d2_up.clear();
-  JpsiMu_hammer_ebe_d2_down.clear();
-
-
-
-
   JpsiTau_nCandidates.clear();
 
   JpsiTau_mu1_pt.clear();
@@ -1679,39 +1579,6 @@ void NtupleBranches::reset( void ){
 //  JpsiTau_ed_id.clear();
 //  JpsiTau_ed_pfdnn.clear();
 //  JpsiTau_ed_genpt.clear();
-
-  JpsiTau_hammer_ff.clear();
-  JpsiTau_hammer_ebe.clear();
-  JpsiTau_hammer_ebe_toy.clear();
-  //  JpsiTau_hammer_ebe_up.clear();
-  //  JpsiTau_hammer_ebe_down.clear();
-  //  JpsiTau_hammer_ebe_rate_up.clear();
-  //  JpsiTau_hammer_ebe_rate_down.clear();
-  JpsiTau_hammer_ebe_a0_up.clear();
-  JpsiTau_hammer_ebe_a0_down.clear();
-  JpsiTau_hammer_ebe_a1_up.clear();
-  JpsiTau_hammer_ebe_a1_down.clear();
-  JpsiTau_hammer_ebe_a2_up.clear();
-  JpsiTau_hammer_ebe_a2_down.clear();
-  
-  JpsiTau_hammer_ebe_b0_up.clear();
-  JpsiTau_hammer_ebe_b0_down.clear();
-  JpsiTau_hammer_ebe_b1_up.clear();
-  JpsiTau_hammer_ebe_b1_down.clear();
-  JpsiTau_hammer_ebe_b2_up.clear();
-  JpsiTau_hammer_ebe_b2_down.clear();
-  
-  JpsiTau_hammer_ebe_c1_up.clear();
-  JpsiTau_hammer_ebe_c1_down.clear();
-  JpsiTau_hammer_ebe_c2_up.clear();
-  JpsiTau_hammer_ebe_c2_down.clear();
-  
-  JpsiTau_hammer_ebe_d0_up.clear();
-  JpsiTau_hammer_ebe_d0_down.clear();
-  JpsiTau_hammer_ebe_d1_up.clear();
-  JpsiTau_hammer_ebe_d1_down.clear();
-  JpsiTau_hammer_ebe_d2_up.clear();
-  JpsiTau_hammer_ebe_d2_down.clear();
 
 
   /////////////////
@@ -2220,13 +2087,6 @@ void NtupleBranches::LabelHistograms( std::map< std::string, bool >& runFlags ){
   }
 
 
-  if ( runFlags["useHammer"] ){
-    std::vector bins_hammer = {"den", "num", "num_a0_up", "num_a0_down", "num_a1_up", "num_a1_down","num_a2_up", "num_a2_down", "num_b0_up", "num_b0_down", "num_b1_up", "num_b1_down","num_b2_up", "num_b2_down", "num_c1_up", "num_c1_down", "num_c2_up", "num_c2_down", "num_d0_up", "num_d0_down", "num_d1_up", "num_d1_down","num_d2_up", "num_d2_down"};
-    
-    for(size_t i=0; i< bins_hammer.size(); i++){
-      hammer_width->GetXaxis()->SetBinLabel(i+1, bins_hammer[i]);
-    }
-  }
 
 
   if ( runFlags["doGenHist"] ){

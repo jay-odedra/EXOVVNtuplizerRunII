@@ -51,7 +51,6 @@ public:
   /* Cutflow */
   TH1F* cutflow_perevt ;
   TH1F* q2_nocut;
-  TH1F* hammer_width;
   
   /* Histogram for genParticles */
    TH1F* genParticle_Bdau_X_id;
@@ -369,39 +368,6 @@ public:
   std::vector<float> JpsiMu_B_phi_gen;
   std::vector<float> JpsiMu_B_mass_gen;
 
-  std::vector<std::vector<float>> JpsiMu_hammer_ff;
-  std::vector<float> JpsiMu_hammer_ebe;
-  std::vector<std::vector<float>> JpsiMu_hammer_ebe_toy;
-  //  std::vector<float> JpsiMu_hammer_ebe_up;
-  //  std::vector<float> JpsiMu_hammer_ebe_down;
-//  std::vector<float> JpsiMu_hammer_ebe_rate_up;
-  //  std::vector<float> JpsiMu_hammer_ebe_rate_down;
-
-  std::vector<float> JpsiMu_hammer_ebe_a0_up;
-  std::vector<float> JpsiMu_hammer_ebe_a0_down;
-  std::vector<float> JpsiMu_hammer_ebe_a1_up;
-  std::vector<float> JpsiMu_hammer_ebe_a1_down;
-  std::vector<float> JpsiMu_hammer_ebe_a2_up;
-  std::vector<float> JpsiMu_hammer_ebe_a2_down;
-
-  std::vector<float> JpsiMu_hammer_ebe_b0_up;
-  std::vector<float> JpsiMu_hammer_ebe_b0_down;
-  std::vector<float> JpsiMu_hammer_ebe_b1_up;
-  std::vector<float> JpsiMu_hammer_ebe_b1_down;
-  std::vector<float> JpsiMu_hammer_ebe_b2_up;
-  std::vector<float> JpsiMu_hammer_ebe_b2_down;
-
-  std::vector<float> JpsiMu_hammer_ebe_c1_up;
-  std::vector<float> JpsiMu_hammer_ebe_c1_down;
-  std::vector<float> JpsiMu_hammer_ebe_c2_up;
-  std::vector<float> JpsiMu_hammer_ebe_c2_down;
-
-  std::vector<float> JpsiMu_hammer_ebe_d0_up;
-  std::vector<float> JpsiMu_hammer_ebe_d0_down;
-  std::vector<float> JpsiMu_hammer_ebe_d1_up;
-  std::vector<float> JpsiMu_hammer_ebe_d1_down;
-  std::vector<float> JpsiMu_hammer_ebe_d2_up;
-  std::vector<float> JpsiMu_hammer_ebe_d2_down;
 
 
 
@@ -616,39 +582,6 @@ public:
 //  std::vector<float> JpsiTau_ed_pfdnn;
 //  std::vector<float> JpsiTau_ed_genpt;
     
-  std::vector<std::vector<float>> JpsiTau_hammer_ff;
-  std::vector<float> JpsiTau_hammer_ebe;
-  std::vector<std::vector<float>> JpsiTau_hammer_ebe_toy;
-  //  std::vector<float> JpsiTau_hammer_ebe_up;
-  //  std::vector<float> JpsiTau_hammer_ebe_down;
-  //  std::vector<float> JpsiTau_hammer_ebe_rate_up;
-//  std::vector<float> JpsiTau_hammer_ebe_rate_down;
-
-  std::vector<float> JpsiTau_hammer_ebe_a0_up;
-  std::vector<float> JpsiTau_hammer_ebe_a0_down;
-  std::vector<float> JpsiTau_hammer_ebe_a1_up;
-  std::vector<float> JpsiTau_hammer_ebe_a1_down;
-  std::vector<float> JpsiTau_hammer_ebe_a2_up;
-  std::vector<float> JpsiTau_hammer_ebe_a2_down;
-
-  std::vector<float> JpsiTau_hammer_ebe_b0_up;
-  std::vector<float> JpsiTau_hammer_ebe_b0_down;
-  std::vector<float> JpsiTau_hammer_ebe_b1_up;
-  std::vector<float> JpsiTau_hammer_ebe_b1_down;
-  std::vector<float> JpsiTau_hammer_ebe_b2_up;
-  std::vector<float> JpsiTau_hammer_ebe_b2_down;
-
-  std::vector<float> JpsiTau_hammer_ebe_c1_up;
-  std::vector<float> JpsiTau_hammer_ebe_c1_down;
-  std::vector<float> JpsiTau_hammer_ebe_c2_up;
-  std::vector<float> JpsiTau_hammer_ebe_c2_down;
-
-  std::vector<float> JpsiTau_hammer_ebe_d0_up;
-  std::vector<float> JpsiTau_hammer_ebe_d0_down;
-  std::vector<float> JpsiTau_hammer_ebe_d1_up;
-  std::vector<float> JpsiTau_hammer_ebe_d1_down;
-  std::vector<float> JpsiTau_hammer_ebe_d2_up;
-  std::vector<float> JpsiTau_hammer_ebe_d2_down;
 
   ////////////////////////
 
