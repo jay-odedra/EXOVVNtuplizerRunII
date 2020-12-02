@@ -7,8 +7,8 @@ Ntuplizer for searches for heavy resonances decaying to dibosons
 Setting up CMSSW (for september reprocessing):
 
 ```
-cmsrel CMSSW_10_2_10
-cd CMSSW_10_2_10/src
+cmsrel CMSSW_10_3_2
+cd CMSSW_10_3_2/src
 cmsenv
 git cms-init
 ```
@@ -23,58 +23,10 @@ git clone https://github.com/${GITUSER}/EXOVVNtuplizerRunII
 cd EXOVVNtuplizerRunII
 git remote add UZHCMS https://github.com/UZHCMS/EXOVVNtuplizerRunII
 git fetch UZHCMS
-git checkout -b Development_BcMu_10210_NoLepProducers UZHCMS/BcMu_10210_NoLepProducers
+git checkout -b gMinus2-dev UZHCMS/gMinus2
 cd $CMSSW_BASE/src
 scram b -j 8
 ```
-
-### setting up Hammer
-```
-export PATH=/cvmfs/sft.cern.ch/lcg/contrib/CMake/3.14.2/Linux-x86_64/bin:${PATH}
-export BOOST_ROOT=/cvmfs/sft.cern.ch/lcg/releases/Boost/1.66.0-f50b5/x86_64-centos7-gcc7-opt/
-export HEPMC_DIR=/cvmfs/sft.cern.ch/lcg/external/HepMC/2.06.08/x86_64-slc6-gcc48-opt
-mkdir Hammer
-cd Hammer
-git clone https://gitlab.com/mpapucci/Hammer Hammer-1.0.0-Source-dev
-git checkout development
-mkdir Hammer-1.0.0-dev-build
-cd Hammer-1.0.0-dev-build
-cmake -DCMAKE_INSTALL_PREFIX=../Hammer-1.0.0-dev -DENABLE_TESTS=ON -DWITH_ROOT=OFF -DWITH_EXAMPLES=OFF -DINSTALL_EXTERNAL_DEPENDENCIES=ON -DWITH_PYTHON=OFF -DBUILD_SHARED_LIBS=ON ../Hammer-1.0.0-Source-dev
-make -j24
-make install -j24
-cd $CMSSW_BASE/lib/slc7_amd64_gcc700
-cp ../../src/Hammer/Hammer-1.0.0-dev/lib64/*.so.* ./
-cp ../../src/Hammer/Hammer-1.0.0-dev/lib64/Hammer/*.so.* ./
-cd $CMSSW_BASE/src/Hammer/Hammer-1.0.0-dev-build
-ctest
-```
-
-### JETMET filters to remove noise events
-```
-cd $CMSSW_BASE/src
-git cms-addpkg RecoMET/METFilters 
-scram b -j 8
-```
-
-
-### Update the electronIDs: not really used, but for consistency
-(https://twiki.cern.ch/twiki/bin/view/CMS/CutBasedElectronIdentificationRun2)
-```
-git cms-merge-topic cms-egamma:EgammaPostRecoTools 
-scram b -j 8
-
-git cms-addpkg EgammaAnalysis/ElectronTools
-rm EgammaAnalysis/ElectronTools/data -rf
-git clone https://github.com/cms-egamma/EgammaAnalysis-ElectronTools.git EgammaAnalysis/ElectronTools/data
-cd EgammaAnalysis/ElectronTools/data
-git checkout ScalesSmearing2018_Dev
-cd -
-git cms-merge-topic cms-egamma:EgammaPostRecoTools_dev
-scram b clean 
-scam b distclean 
-scram b -j 8 
-```
-
 
 ### running for data and MC
 Just set the proper flags in python/ntuplizerOptions_generic_cfi.py

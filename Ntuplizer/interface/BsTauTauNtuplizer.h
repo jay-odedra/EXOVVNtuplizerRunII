@@ -127,18 +127,18 @@ class BsTauTauNtuplizer : public CandidateNtuplizer {
 
 
  public:
-  BsTauTauNtuplizer( edm::EDGetTokenT<pat::MuonCollection>    muonToken   , 
-		   edm::EDGetTokenT<reco::VertexCollection> verticeToken, 
-		   edm::EDGetTokenT<pat::PackedCandidateCollection> packedpfcandidatesToken,
-		   edm::EDGetTokenT<edm::TriggerResults> triggertoken,
-		   edm::EDGetTokenT<pat::TriggerObjectStandAloneCollection> triggerobject,
-		   edm::EDGetTokenT<reco::GenParticleCollection> genptoken, 
-		    edm::EDGetTokenT<std::vector<reco::GenJet>> genttoken,
-		   std::map< std::string, bool >& runFlags,
-		   std::map< std::string, double >& runValues,
-		    std::map< std::string, std::string >& runStrings,
-		   NtupleBranches* nBranches );
-
+  BsTauTauNtuplizer( edm::EDGetTokenT<reco::MuonCollection>    muonToken   , 
+		     edm::EDGetTokenT<edm::SortedCollection<CaloTower>> CaloTowerCollection ,
+		     edm::EDGetTokenT<reco::VertexCollection> verticeToken, 
+		     edm::EDGetTokenT<std::vector<reco::PFCandidate>> packedpfcandidatesToken,
+		     edm::EDGetTokenT<edm::TriggerResults> triggertoken,
+		     edm::EDGetTokenT<reco::GenParticleCollection> genptoken, 
+		     edm::EDGetTokenT<std::vector<reco::GenJet>> genttoken,
+		     std::map< std::string, bool >& runFlags,
+		     std::map< std::string, double >& runValues,
+		     std::map< std::string, std::string >& runStrings,
+		     NtupleBranches* nBranches );
+  
   ~BsTauTauNtuplizer( void );
 
 //  std::tuple<Float_t, TransientVertex> vertexProb( const std::vector<reco::TransientTrack>& tracks);
@@ -168,20 +168,19 @@ class BsTauTauNtuplizer : public CandidateNtuplizer {
 //  Int_t decaymode_id(std::string str);
   
 private:
-   edm::EDGetTokenT<pat::MuonCollection>    muonToken_   ;
+   edm::EDGetTokenT<reco::MuonCollection>    muonToken_   ;
+   edm::EDGetTokenT<edm::SortedCollection<CaloTower>> CaloTowerCollection_;
    edm::EDGetTokenT<reco::VertexCollection> verticeToken_   ;
-   edm::EDGetTokenT<pat::PackedCandidateCollection>   		packedpfcandidatesToken_;
+   edm::EDGetTokenT<std::vector<reco::PFCandidate>>   		packedpfcandidatesToken_;
    edm::EDGetTokenT<edm::TriggerResults> 		     HLTtriggersToken_;
-   edm::EDGetTokenT<pat::TriggerObjectStandAloneCollection>  triggerObjects_;
    edm::EDGetTokenT<reco::GenParticleCollection> genParticlesToken_;
    edm::EDGetTokenT<std::vector<reco::GenJet>> genTauToken_;
 
-   edm::Handle<pat::MuonCollection>      		       muons_		       ;
+   edm::Handle<std::vector<reco::Muon>>      		       muons_		       ;
    edm::Handle< reco::VertexCollection >  vertices_;
    edm::Handle< reco::BeamSpot >  beamspot_;
-   edm::Handle< std::vector<pat::PackedCandidate> > packedpfcandidates_   ;
+   edm::Handle< std::vector<reco::PFCandidate> > packedpfcandidates_   ;
    edm::Handle< edm::TriggerResults> 			     HLTtriggers_;
-   edm::Handle<pat::TriggerObjectStandAloneCollection>	     triggerObjects;
    edm::Handle< reco::GenParticleCollection >  genParticles_;
    edm::Handle< std::vector<reco::GenJet> >  genTaus_;
 
@@ -207,23 +206,53 @@ private:
    float c_dz;
    float c_fsig;
    float c_vprob;
-   float c_dnn;
    helper aux;
 
-   tensorflow::MetaGraphDef* graphDef;
-   tensorflow::Session* session;
-   tensorflow::Tensor data; // (tensorflow::DT_FLOAT, { 1, 50, 8 }); // single batch of dimension 10
-   tensorflow::Tensor label; // (tensorflow::DT_FLOAT, { 1,50}); 
-   tensorflow::Tensor add_global; //(tensorflow::DT_FLOAT, { 1, 2 }); 
-   tensorflow::Tensor isTraining; //(tensorflow::DT_FLOAT, { 1, 2 }); 
-   tensorflow::Tensor norm; //(tensorflow::DT_FLOAT, { 1, 2 }); 
+   std::vector<std::string> detNames = { "EB", "EE", "HB", "HE", "HFm", "HFp", "unknown" };
+   std::vector<std::pair<double,double>> detLimits = {
+     {0    , 1.4442 }, // EB (Exclude transition region between calo barrel and endcap)
+     {1.566, 3.0   }, // EE (Exclude transition region between calo barrel and endcap)
+     {0    , 1.3   }, // HB
+     {1.3  , 3.0   }, // HE
+     {3.0  , 5.2   }, // HFm    // sleontsi
+     {3.0  , 5.2   }, // HFp*/
+//     {-5.2 ,-3.0   }, // HFm    // original
+//     {3.0  , 5.2   }, // HFp*/
 
-   
-   std::string dnnfile_;
+   };
+   enum ECaloType { kEB, kEE, kHB, kHE, kHFp, kHFm, nCaloTypes };
+   ECaloType GetTowerSubdetHad(double&) const;
+   ECaloType GetTowerSubdetEm(double&)  const;
 
-   //   bool doCutFlow_;
-   std::map<std::tuple<Int_t, Float_t, Float_t, Float_t>, std::vector<Int_t>> DNNidx;
-   std::map<std::tuple<Int_t, Float_t, Float_t, Float_t>, std::vector<Float_t>> DNNval;
+   const std::map<ECaloType, std::string> caloName = {
+     { kEB  , "EB"  },
+     { kEE  , "EE"  },
+     { kHB  , "HB"  },
+     { kHE  , "HE"  },
+     { kHFp , "HFp" },
+     { kHFm , "HFm" },
+   };
+ 
+   const std::map<ECaloType, double> noiseThreshold = {
+     { kEB  , 0.7 },
+     { kEE  , 7.5 },
+     { kHB  , 2.8  },
+     { kHE  , 2.4  },
+     { kHFp , 7.2  },
+     { kHFm , 7.5  },
+   };
+ 
+   const double maxEtaEB = detLimits.at(0).second;
+   const double minEtaEE = detLimits.at(1).first;
+   const double maxEtaEE = detLimits.at(1).second;
+ 
+   const double maxEtaHB = detLimits.at(2).second;
+   const double minEtaHE = detLimits.at(3).first;
+   const double maxEtaHE = detLimits.at(3).second;
+ 
+   const double minEtaHF = abs(detLimits.at(4).first);
+   const double maxEtaHF = abs(detLimits.at(4).second);
+
 };
 
 

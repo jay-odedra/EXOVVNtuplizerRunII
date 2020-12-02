@@ -57,7 +57,7 @@ private:
   edm::EDGetTokenT<reco::BeamSpot>                          beamToken_          ;
   edm::EDGetTokenT<reco::VertexCollection>                  vtxToken_           ;
   edm::EDGetTokenT<double>                                  rhoToken_           ;
-  edm::EDGetTokenT<pat::PackedCandidateCollection>          packedpfcandidatesToken_;
+  edm::EDGetTokenT<std::vector<reco::PFCandidate>>          packedpfcandidatesToken_;
   edm::EDGetTokenT<std::vector<reco::VertexCompositePtrCandidate>>          svToken_;
 
   edm::EDGetTokenT< std::vector<PileupSummaryInfo> >        puinfoToken_        ;
@@ -67,8 +67,8 @@ private:
   edm::EDGetTokenT<reco::GenParticleCollection>             genparticleToken_   ;
   edm::EDGetTokenT<std::vector<reco::GenJet>>               gentauToken_   ;
  
-  edm::EDGetTokenT<pat::MuonCollection>     		    muonToken_  	;	
-  edm::EDGetTokenT<pat::ElectronCollection>     		    electronToken_  	;	
+  edm::EDGetTokenT<reco::MuonCollection>     		        muonToken_  	;	
+  edm::EDGetTokenT<edm::SortedCollection<CaloTower>>    CaloTowerCollection_;
   //  edm::EDGetTokenT<edm::View<pat::Electron> >		    electronToken_	;
   /* edm::EDGetTokenT<edm::ValueMap<bool> >                    eleVetoIdMapToken_  ; */
   /* edm::EDGetTokenT<edm::ValueMap<bool> >                    eleLooseIdMapToken_ ; */
@@ -80,25 +80,6 @@ private:
   /* edm::EDGetTokenT<edm::ValueMap<bool> >                    eleMVATightIdMapToken_ ; */
   /* edm::EDGetTokenT<edm::ValueMap<float> >                   mvaValuesMapToken_; */
   /* edm::EDGetTokenT<edm::ValueMap<int> >                     mvaCategoriesMapToken_; */
-  edm::EDGetTokenT<edm::SortedCollection<EcalRecHit,edm::StrictWeakOrdering<EcalRecHit>>> ebRecHitsToken_;
-  edm::EDGetTokenT<pat::TauCollection> 	    		    tauToken_		;
-  
-
-  edm::EDGetTokenT<pat::METCollection> 	    		    metToken_		;
-  edm::EDGetTokenT<pat::METCollection> 	    		    metpuppiToken_		;
-  edm::EDGetTokenT<pat::METCollection> 	    		    metmvaToken_		;
-  edm::EDGetTokenT<double> 	    		            metSigToken_		;
-  edm::EDGetTokenT<math::Error<2>::type> 	     	    metCovToken_		;
-  edm::EDGetTokenT<pat::JetCollection>                      jetForMetCorrToken_ ;
-  
   edm::EDGetTokenT<edm::TriggerResults>                     triggerToken_       ;
   edm::EDGetTokenT<pat::TriggerObjectStandAloneCollection>  triggerObjects_     ;
-  edm::EDGetTokenT<pat::PackedTriggerPrescales>             triggerPrescales_   ;
-  
-  edm::EDGetTokenT<edm::TriggerResults>                     noiseFilterToken_;
-  edm::EDGetTokenT<bool>                                    HBHENoiseFilterLooseResultToken_;
-  edm::EDGetTokenT<bool>                                    HBHENoiseFilterTightResultToken_;
-  edm::EDGetTokenT<bool>                                    HBHENoiseIsoFilterResultToken_;  
-  edm::EDGetTokenT<bool>                                    ecalBadCalibFilterUpdateToken_;
-
 };

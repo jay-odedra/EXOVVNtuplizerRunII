@@ -30,6 +30,12 @@
 #include "DataFormats/MuonReco/interface/MuonSelectors.h"
 #include "DataFormats/MuonReco/interface/MuonQuality.h"
 
+#include "DataFormats/MuonReco/interface/Muon.h"
+#include "DataFormats/MuonReco/interface/MuonFwd.h"
+#include "DataFormats/ParticleFlowCandidate/interface/PFCandidate.h"
+#include "DataFormats/ParticleFlowReco/interface/PFBlockElement.h"
+
+
 #include "DataFormats/Math/interface/deltaR.h"
 //#include "DataFormats/Common/interface/TriggerResults.h"
 //#include "DataFormats/PatCandidates/interface/TriggerObjectStandAlone.h"
@@ -83,6 +89,7 @@
 #include "FWCore/ParameterSet/interface/FileInPath.h"
 #include "PhysicsTools/TensorFlow/interface/TensorFlow.h"
 
+#include "DataFormats/CaloTowers/interface/CaloTowerCollection.h"
 
 #include <tuple>
 #include <sstream>
@@ -96,16 +103,15 @@
 #include <vector>
 #include <map>
 
-#include "Hammer/Hammer.hh"
-#include "Hammer/Process.hh"
-#include "Hammer/Particle.hh"
+//#include "Hammer/Hammer.hh"
+//#include "Hammer/Process.hh"
+//#include "Hammer/Particle.hh"
 
 
 //#include "../interface/MyStruct.h"
 //#include <iostream>
 //#include <string.h>
 //#include <TVector3.h>
-//#include <TRandom.h>
 
 using namespace std;
 

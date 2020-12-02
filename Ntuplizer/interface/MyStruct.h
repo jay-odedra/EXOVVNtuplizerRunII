@@ -59,7 +59,6 @@ struct taucand{
   Int_t cand_tau_matched_ppdgId;
   Float_t cand_tau_matched_gentaupt;
   Float_t cand_tau_sumofdnn;
-  Float_t cand_tau_sumofdnn_others;
   Float_t cand_tau_pi1_dnn;
   Float_t cand_tau_pi2_dnn;
   Float_t cand_tau_pi3_dnn;
@@ -82,9 +81,6 @@ struct taucand{
   Float_t cand_b_iso;
   Float_t cand_b_iso_ntracks;
   Float_t cand_b_iso_mindoca;
-  Float_t cand_b_iso_nocut;
-  Float_t cand_b_iso_ntracks_nocut;
-  Float_t cand_b_iso_mindoca_nocut;
     
   bool operator<(const taucand& another) const { 
     return cand_tau_pt > another.cand_tau_pt;

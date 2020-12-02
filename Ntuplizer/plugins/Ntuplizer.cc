@@ -5,17 +5,19 @@
 #include "../interface/GenEventNtuplizer.h"
 #include "../interface/GenParticlesNtuplizer.h"
 #include "../interface/VerticesNtuplizer.h"
-#include "../interface/JpsiMuNtuplizer.h"
-#include "../interface/JpsiTauNtuplizer.h"
 #include "../interface/BsTauTauNtuplizer.h"
-#include "../interface/BsTauTauFHNtuplizer.h"
-#include "../interface/BsTauTauFHNtuplizer_mr.h"
-#include "../interface/BsDstarTauNuNtuplizer.h"
 
 #include "DataFormats/PatCandidates/interface/TriggerObjectStandAlone.h"
-#include "DataFormats/PatCandidates/interface/PackedTriggerPrescales.h"
 
 #include "FWCore/ParameterSet/interface/FileInPath.h"
+
+#include "DataFormats/MuonReco/interface/MuonSelectors.h"
+#include "DataFormats/MuonReco/interface/MuonQuality.h"
+
+#include "DataFormats/MuonReco/interface/Muon.h"
+#include "DataFormats/MuonReco/interface/MuonFwd.h"
+#include "DataFormats/ParticleFlowCandidate/interface/PFCandidate.h"
+#include "DataFormats/ParticleFlowReco/interface/PFBlockElement.h"
 
 // #include "DataFormats/METReco/interface/PFMET.h"
 
@@ -25,43 +27,22 @@ Ntuplizer::Ntuplizer(const edm::ParameterSet& iConfig):
  
 
   beamToken_                  (consumes<reco::BeamSpot>(iConfig.getParameter<edm::InputTag>("beamSpot"))),
-	vtxToken_             	    (consumes<reco::VertexCollection>(iConfig.getParameter<edm::InputTag>("vertices"))),
-	rhoToken_             	    (consumes<double>(iConfig.getParameter<edm::InputTag>("rho"))),
-	packedpfcandidatesToken_    (consumes<std::vector<pat::PackedCandidate>>(iConfig.getParameter<edm::InputTag>("packedpfcandidates"))), 
-        svToken_                    (consumes<std::vector<reco::VertexCompositePtrCandidate>>(iConfig.getParameter<edm::InputTag>("SecondaryVertices"))), 
-	puinfoToken_          	    (consumes<std::vector<PileupSummaryInfo> >(iConfig.getParameter<edm::InputTag>("PUInfo"))),
-	geneventToken_        	    (consumes<GenEventInfoProduct>(iConfig.getParameter<edm::InputTag>("genEventInfo"))),     
-	lheEventProductToken_       (consumes<LHEEventProduct>(iConfig.getParameter<edm::InputTag>("externallheProducer"))),     
-	genparticleToken_     	    (consumes<reco::GenParticleCollection>(iConfig.getParameter<edm::InputTag>("genparticles"))),
-    gentauToken_     	    (consumes<std::vector<reco::GenJet>>(iConfig.getParameter<edm::InputTag>("gentaus"))),
-
-	muonToken_	      	    (consumes<pat::MuonCollection>(iConfig.getParameter<edm::InputTag>("muons"))),
-	electronToken_	      	    (consumes<pat::ElectronCollection>(iConfig.getParameter<edm::InputTag>("electrons"))),
-
-	//mvaValuesMapToken_          (consumes<edm::ValueMap<float> >(iConfig.getParameter<edm::InputTag>("mvaValuesMap"))),
-	//mvaCategoriesMapToken_      (consumes<edm::ValueMap<int> >(iConfig.getParameter<edm::InputTag>("mvaCategoriesMap"))),
-	ebRecHitsToken_             (consumes<edm::SortedCollection<EcalRecHit,edm::StrictWeakOrdering<EcalRecHit>>>(iConfig.getParameter<edm::InputTag>("ebRecHits"))),
-
-	tauToken_	      	    (consumes<pat::TauCollection>(iConfig.getParameter<edm::InputTag>("taus"))),
-				     //tauBoostedTauToken_	    (consumes<pat::TauCollection>(iConfig.getParameter<edm::InputTag>("tausBoostedTau"))),
-
-	metToken_	      	    (consumes<pat::METCollection>(iConfig.getParameter<edm::InputTag>("mets"))),
-	metpuppiToken_	      	    (consumes<pat::METCollection>(iConfig.getParameter<edm::InputTag>("mets_puppi"))),
-	metmvaToken_	      	    (consumes<pat::METCollection>(iConfig.getParameter<edm::InputTag>("mets_mva"))),
-	metSigToken_	      	    (consumes<double>(edm::InputTag("METSignificance","METSignificance"))),
-	metCovToken_	      	    (consumes<math::Error<2>::type>(edm::InputTag("METSignificance","METCovariance"))),
-
-	jetForMetCorrToken_   	    (consumes<pat::JetCollection>(iConfig.getParameter<edm::InputTag>("jetsForMetCorr"))),
-
-	triggerToken_	      	    (consumes<edm::TriggerResults>(iConfig.getParameter<edm::InputTag>("HLT"))),
-	triggerObjects_	      	    (consumes<pat::TriggerObjectStandAloneCollection>(iConfig.getParameter<edm::InputTag>("triggerobjects"))),
-	triggerPrescales_     	    (consumes<pat::PackedTriggerPrescales>(iConfig.getParameter<edm::InputTag>("triggerprescales"))),
-        noiseFilterToken_     	    (consumes<edm::TriggerResults>(iConfig.getParameter<edm::InputTag>("noiseFilter"))),
-        HBHENoiseFilterLooseResultToken_(consumes<bool>(iConfig.getParameter<edm::InputTag>("noiseFilterSelection_HBHENoiseFilterLoose"))),
-        HBHENoiseFilterTightResultToken_(consumes<bool>(iConfig.getParameter<edm::InputTag>("noiseFilterSelection_HBHENoiseFilterTight"))),
-	HBHENoiseIsoFilterResultToken_(consumes<bool>(iConfig.getParameter<edm::InputTag>("noiseFilterSelection_HBHENoiseIsoFilter"))),
-	 ecalBadCalibFilterUpdateToken_(consumes< bool >(iConfig.getParameter<edm::InputTag>("noiseFilterSelection_ecalBadCalibReducedMINIAODFilter")))
-
+  vtxToken_             	    (consumes<reco::VertexCollection>(iConfig.getParameter<edm::InputTag>("vertices"))),
+  rhoToken_             	    (consumes<double>(iConfig.getParameter<edm::InputTag>("rho"))),
+  packedpfcandidatesToken_    (consumes<std::vector<reco::PFCandidate>>(iConfig.getParameter<edm::InputTag>("packedpfcandidates"))), 
+  svToken_                    (consumes<std::vector<reco::VertexCompositePtrCandidate>>(iConfig.getParameter<edm::InputTag>("SecondaryVertices"))), 
+  puinfoToken_          	    (consumes<std::vector<PileupSummaryInfo> >(iConfig.getParameter<edm::InputTag>("PUInfo"))),
+  geneventToken_        	    (consumes<GenEventInfoProduct>(iConfig.getParameter<edm::InputTag>("genEventInfo"))),     
+  lheEventProductToken_       (consumes<LHEEventProduct>(iConfig.getParameter<edm::InputTag>("externallheProducer"))),     
+  genparticleToken_     	    (consumes<reco::GenParticleCollection>(iConfig.getParameter<edm::InputTag>("genparticles"))),
+  gentauToken_     	          (consumes<std::vector<reco::GenJet>>(iConfig.getParameter<edm::InputTag>("gentaus"))),
+  
+  muonToken_	      	        (consumes<reco::MuonCollection>(iConfig.getParameter<edm::InputTag>("muons"))),
+  CaloTowerCollection_        (consumes<edm::SortedCollection<CaloTower>>(edm::InputTag("towerMaker"))),
+  
+  
+  triggerToken_	      	    (consumes<edm::TriggerResults>(iConfig.getParameter<edm::InputTag>("HLT"))),
+  triggerObjects_	      	    (consumes<pat::TriggerObjectStandAloneCollection>(iConfig.getParameter<edm::InputTag>("triggerobjects")))
 {
 
 
@@ -74,35 +55,23 @@ Ntuplizer::Ntuplizer(const edm::ParameterSet& iConfig):
  
   //std::map< std::string, bool > runFlags;
   runFlags["runOnMC"] = iConfig.getParameter<bool>("runOnMC");
-  runFlags["useDNN"] = iConfig.getParameter<bool>("useDNN");
-  runFlags["useHammer"] = iConfig.getParameter<bool>("useHammer");
+//  runFlags["useHammer"] = iConfig.getParameter<bool>("useHammer");
   runFlags["doGenParticles"] = iConfig.getParameter<bool>("doGenParticles");
   runFlags["doGenEvent"] = iConfig.getParameter<bool>("doGenEvent");
   runFlags["doPileUp"] = iConfig.getParameter<bool>("doPileUp");
   runFlags["doVertices"] = iConfig.getParameter<bool>("doVertices");
-  runFlags["doMissingEt"] = iConfig.getParameter<bool>("doMissingEt");
-  runFlags["doJpsiMu"] = iConfig.getParameter<bool>("doJpsiMu");
-  runFlags["doJpsiTau"] = iConfig.getParameter<bool>("doJpsiTau");
   runFlags["doBsTauTau"] = iConfig.getParameter<bool>("doBsTauTau");
-  runFlags["doBsTauTauFH"] = iConfig.getParameter<bool>("doBsTauTauFH");
-  runFlags["doBsTauTauFH_mr"] = iConfig.getParameter<bool>("doBsTauTauFH_mr");
-  runFlags["doBsDstarTauNu"] = iConfig.getParameter<bool>("doBsDstarTauNu");
   runFlags["doGenHist"] = iConfig.getParameter<bool>("doGenHist");
   runFlags["isTruth"] = iConfig.getParameter<bool>("isTruth");
   runFlags["verbose"] = iConfig.getParameter<bool>("verbose");
   runValues["dzcut"] = iConfig.getParameter<double>("dzcut");
   runValues["fsigcut"] = iConfig.getParameter<double>("fsigcut");
   runValues["vprobcut"] = iConfig.getParameter<double>("vprobcut");
-  runValues["dnncut"] = iConfig.getParameter<double>("dnncut");
   runValues["tau_charge"] = iConfig.getParameter<unsigned int>("tau_charge");
 
-  runStrings["dnnfile"] = iConfig.getParameter<std::string>("dnnfile");  
-
-
-  std::cout << "Ntuplizer: dnn file: " << runStrings["dnnfile"] << std::endl;
-  std::cout << "Ntuplizer: (dzcut, fsigcut, vprobcut, dnn cut, tau_charge) = " << runValues["dzcut"] << " " << runValues["fsigcut"] << " " << runValues["vprobcut"] << " " << runValues["dnncut"] << " " << runValues["tau_charge"] << std::endl;
+  std::cout << "Ntuplizer: (dzcut, fsigcut, vprobcut, tau_charge) = " << runValues["dzcut"] << " " << runValues["fsigcut"] << " " << runValues["vprobcut"] << " " << runValues["tau_charge"] << std::endl;
   
-  std::cout << "useHammer" << runFlags["useHammer"] << std::endl;
+//  std::cout << "useammer" << runFlags["useHammer"] << std::endl;
 
   std::string jecpath = iConfig.getParameter<std::string>("jecpath");
   jecpath = "EXOVVNtuplizerRunII/Ntuplizer/data/" + jecpath;
@@ -114,15 +83,12 @@ Ntuplizer::Ntuplizer(const edm::ParameterSet& iConfig):
   /* Histogram buildinng, definition in NtupleBrances */
   /* Histogram for cutflow */
 
-  nBranches_->cutflow_perevt = fs->make<TH1F>("cutflow_perevt", "Per Event Ntuplizer Cutflow", 15, 0, 15);
+  nBranches_->cutflow_perevt = fs->make<TH1F>("cutflow_perevt", "Per Event Ntuplizer Cutflow", 10, 0, 10);
+  nBranches_->q2_nocut = fs->make<TH1F>("q2_nocut", "q2 before any cut", 40, 0, 15);
 
-  if(runFlags["runOnMC"]){
-    nBranches_->q2_nocut = fs->make<TH1F>("q2_nocut", "q2 before any cut", 40, 0, 15);
-  }
-
-  if(runFlags["useHammer"]){
-    nBranches_->hammer_width = fs->make<TH1F>("hammer_width", "Hammer width", 24, 0, 24);  
-  }
+//  if(runFlags["useHammer"]){
+//    nBranches_->hammer_width = fs->make<TH1F>("hammer_width", "Hammer width", 24, 0, 24);  
+//  }
 
   /* Histogram for genParticles */ 
   if (runFlags["doGenHist"]){
@@ -154,37 +120,6 @@ Ntuplizer::Ntuplizer(const edm::ParameterSet& iConfig):
 
 
  
-  /*=======================================================================================*/
-  if (runFlags["doMissingEt"]) {
-    std::vector<std::string> corrFormulas;
-    corrFormulas.push_back(iConfig.getParameter<std::string>("corrMetPx"));
-    corrFormulas.push_back(iConfig.getParameter<std::string>("corrMetPy"));
-
-    std::vector<std::string> jecAK4Labels;
-    std::vector<std::string> tmpVec = iConfig.getParameter<std::vector<std::string> >("jecAK4forMetCorr");
-    std::string tmpString = "";
-    for( unsigned int v = 0; v < tmpVec.size(); ++v ){
-       tmpString = jecpath + tmpVec[v];
-       std::cout << " tmpString "<< tmpString <<std::endl;
-       jecAK4Labels.push_back(edm::FileInPath(tmpString).fullPath());
-    }
-    
-    nTuplizers_["MET"] = new METsNtuplizer( metToken_          , 
-					    metpuppiToken_     , 
-					    metmvaToken_     , 
-                        jetForMetCorrToken_, 
-					    muonToken_         ,
-					    rhoToken_	       ,
-					    vtxToken_	       ,
-					    metSigToken_       ,
-					    metCovToken_       ,
-					    jecAK4Labels       ,
-                        corrFormulas       ,
-					    nBranches_         ,
-					    runFlags  );
-  }
-    
-  
   /*=======================================================================================*/  
   std::vector<edm::EDGetTokenT<reco::VertexCollection>> vtxTokens;
   vtxTokens.push_back( vtxToken_  );  
@@ -200,40 +135,13 @@ Ntuplizer::Ntuplizer(const edm::ParameterSet& iConfig):
 						     runFlags    );
   }
 
-
-  if (runFlags["doJpsiMu"]) {
-    std::cout<<"\n\n --->GETTING INSIDE doJpsiMu<---\n\n"<<std::endl;
-    nTuplizers_["JpsiMu"] = new JpsiMuNtuplizer( muonToken_   , 
-						 vtxToken_   , 
-						 packedpfcandidatesToken_,
-						 triggerToken_,
-						 triggerObjects_,
-						 genparticleToken_,
-						 runFlags,
-						 nBranches_ );
-  }
-  if (runFlags["doJpsiTau"]) {
-    std::cout<<"\n\n --->GETTING INSIDE doJpsiTau<---\n\n"<<std::endl;
-    nTuplizers_["JpsiTau"] = new JpsiTauNtuplizer( muonToken_   , 
-						   vtxToken_   , 
-						   packedpfcandidatesToken_,
-						   triggerToken_,
-						   triggerObjects_,
-						   genparticleToken_,
-						   gentauToken_,
-						   runFlags,
-						   runValues,
-						   runStrings,
-						   nBranches_ );
-  }
-
   if (runFlags["doBsTauTau"]) {
     std::cout<<"\n\n --->GETTING INSIDE doBsTauTau<---\n\n"<<std::endl;
     nTuplizers_["BsTauTau"] = new BsTauTauNtuplizer( muonToken_   , 
+						     CaloTowerCollection_ ,
 						     vtxToken_   , 
 						     packedpfcandidatesToken_,
 						     triggerToken_,
-						     triggerObjects_,
 						     genparticleToken_,
 						     gentauToken_,
 						     runFlags,
@@ -242,51 +150,6 @@ Ntuplizer::Ntuplizer(const edm::ParameterSet& iConfig):
 						     nBranches_ );
   }
 
-  if (runFlags["doBsTauTauFH"]) {
-    std::cout<<"\n\n --->GETTING INSIDE doBsTauTauFH<---\n\n"<<std::endl;
-    nTuplizers_["BsTauTauFH"] = new BsTauTauFHNtuplizer( muonToken_   , 
-							 vtxToken_   , 
-							 packedpfcandidatesToken_,
-							 triggerToken_,
-							 triggerObjects_,
-							 genparticleToken_,
-							 gentauToken_,
-							 runFlags,
-							 runValues,
-							 runStrings,
-							 nBranches_ );
-  }
-
-  if (runFlags["doBsTauTauFH_mr"]) {
-    std::cout<<"\n\n --->GETTING INSIDE doBsTauTauFH_mr<---\n\n"<<std::endl;
-    nTuplizers_["BsTauTauFH_mr"] = new BsTauTauFHNtuplizer_mr( muonToken_   , 
-							 vtxToken_   , 
-							 packedpfcandidatesToken_,
-							 triggerToken_,
-							 triggerObjects_,
-							 genparticleToken_,
-							 gentauToken_,
-							 runFlags,
-							 runValues,
-							 runStrings,
-							 nBranches_ );
-  }
-
-  if (runFlags["doBsDstarTauNu"]) {
-    std::cout<<"\n\n --->GETTING INSIDE doBsDstarTauNu<---\n\n"<<std::endl;
-    nTuplizers_["BsDstarTauNu"] = new BsDstarTauNuNtuplizer( muonToken_   , 
-							 vtxToken_   , 
-							 packedpfcandidatesToken_,
-							 triggerToken_,
-							 triggerObjects_,
-							 genparticleToken_,
-							 gentauToken_,
-							 runFlags,
-							 runValues,
-							 runStrings,
-							 nBranches_ );
-  }
-  
 
  
   /*=======================================================================================*/    

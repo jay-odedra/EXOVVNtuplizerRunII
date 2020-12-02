@@ -2,8 +2,6 @@
 #define GenParticlesNtuplizer_H
 
 #include "../interface/CandidateNtuplizer.h"
-#include "PhysicsTools/HepMCCandAlgos/interface/GenParticlesHelper.h"
-//#include "DataFormats/HepMCCandidate/interface/GenParticle.h"
 #include <algorithm>
 #include <vector>
 
@@ -17,10 +15,6 @@ public:
   ~GenParticlesNtuplizer( void ); 
 
   bool fillBranches( edm::Event const & event, const edm::EventSetup& iSetup  );
-
-  void recursiveDaughters(size_t index, int rank, const reco::GenParticleCollection &src, std::vector<size_t> &allIndices, std::vector<int> &pdgs, std::vector<int> &layers, std::vector<float> &ppt, std::vector<float> &peta, std::vector<float> &pphi);
-
-  
 
 private:
    edm::EDGetTokenT<reco::GenParticleCollection> genParticlesToken_;
