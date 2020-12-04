@@ -83,8 +83,6 @@ Ntuplizer::Ntuplizer(const edm::ParameterSet& iConfig):
   /* Histogram buildinng, definition in NtupleBrances */
   /* Histogram for cutflow */
 
-  nBranches_->cutflow_perevt = fs->make<TH1F>("cutflow_perevt", "Per Event Ntuplizer Cutflow", 10, 0, 10);
-  nBranches_->q2_nocut = fs->make<TH1F>("q2_nocut", "q2 before any cut", 40, 0, 15);
 
 //  if(runFlags["useHammer"]){
 //    nBranches_->hammer_width = fs->make<TH1F>("hammer_width", "Hammer width", 24, 0, 24);  
@@ -92,25 +90,6 @@ Ntuplizer::Ntuplizer(const edm::ParameterSet& iConfig):
 
   /* Histogram for genParticles */ 
   if (runFlags["doGenHist"]){
-      nBranches_->genParticle_Bdau_X_id=fs->make<TH1F>("genParticle_Bdau_X_id", "Identity of X in B->J/#psi+X;id;Events;", 18, 0, 18);
-      nBranches_->genParticle_Bdau_X_pt =fs->make<TH1F>("genParticle_Bdau_X_pt", "p_{T} of X in B->J/#psi+X;pt[GeV];Events;", 100, 0, 20);
-      nBranches_->genParticle_Bdau_X_eta =fs->make<TH1F>("genParticle_Bdau_X_eta", "#eta of X in B->J/#psi+X", 48, -2.4, 2.4);
-      nBranches_->genParticle_Bdau_X_phi =fs->make<TH1F>("genParticle_Bdau_X_phi", "#phi of X in B->J/#psi+X", 64, -3.2, 3.2);
-      nBranches_->genParticle_Bdau_X_mass =fs->make<TH1F>("genParticle_Bdau_X_mass", "#phi of X in B->J/#psi+X", 64, -3.2, 3.2);
-      nBranches_->genParticle_Bdau_mu1_pt =fs->make<TH1F>("genParticle_Bdau_mu1_pt", "p_{T} of #mu_{J/#psi,1} in B->J/#psi+X;pt[GeV];Events;", 50, 0, 10);
-      nBranches_->genParticle_Bdau_mu1_eta =fs->make<TH1F>("genParticle_Bdau_mu1_eta", "#eta of #mu_{J/#psi,1} in B->J/#psi+X", 48, -2.4, 2.4);
-      nBranches_->genParticle_Bdau_mu1_phi =fs->make<TH1F>("genParticle_Bdau_mu1_phi", "#phi of #mu_{J/#psi,1} in B->J/#psi+X", 64, -3.2, 3.2);
-      nBranches_->genParticle_Bdau_mu2_pt =fs->make<TH1F>("genParticle_Bdau_mu2_pt", "p_{T} of #mu_{J/#psi,2} in B->J/#psi+X;pt[GeV];Events;", 50, 0, 10);
-      nBranches_->genParticle_Bdau_mu2_eta =fs->make<TH1F>("genParticle_Bdau_mu2_eta", "#eta of #mu_{J/#psi,2} in B->J/#psi+X", 48, -2.4, 2.4);
-      nBranches_->genParticle_Bdau_mu2_phi =fs->make<TH1F>("genParticle_Bdau_mu2_phi", "#phi of #mu_{J/#psi,2} in B->J/#psi+X", 64, -3.2, 3.2);
-      nBranches_->genParticle_Bdau_Jpsi_pt =fs->make<TH1F>("genParticle_Bdau_Jpsi_pt", "p_{T} of J/#psi in B->J/#psi+X;pt[GeV];Events;", 100, 0, 20);
-      nBranches_->genParticle_Bdau_Jpsi_eta =fs->make<TH1F>("genParticle_Bdau_Jpsi_eta", "#eta of J/#psi in B->J/#psi+X", 48, -2.4, 2.4);
-      nBranches_->genParticle_Bdau_Jpsi_phi =fs->make<TH1F>("genParticle_Bdau_Jpsi_phi", "#phi of J/#psi in B->J/#psi+X", 64, -3.2, 3.2);
-      nBranches_->genParticle_Bdau_Jpsi_mass =fs->make<TH1F>("genParticle_Bdau_Jpsi_mass", "mass of J/#psi in B->J/#psi+X", 100, 0, 20);
-      nBranches_->genParticle_Bvis_pt =fs->make<TH1F>("genParticle_Bvis_pt", "Visible p_{T} of B in B->J/#psi+X;pt[GeV];Events;", 100, 0, 20);
-      nBranches_->genParticle_Bvis_eta =fs->make<TH1F>("genParticle_Bvis_eta", "Visible #eta of B in B->J/#psi+X", 48, -2.4, 2.4);
-      nBranches_->genParticle_Bvis_phi =fs->make<TH1F>("genParticle_Bvis_phi", "Visible #phi of B in B->J/#psi+X", 64, -3.2, 3.2);
-      nBranches_->genParticle_Bvis_mass =fs->make<TH1F>("genParticle_Bvis_mass", "Visible mass of B in B->J/#psi+X", 100, 0, 20);
   } 
   //  if (runFlags["doGenHist"]) {
   nBranches_-> LabelHistograms( runFlags );
@@ -190,7 +169,7 @@ Ntuplizer::Ntuplizer(const edm::ParameterSet& iConfig):
 Ntuplizer::~Ntuplizer()
 {
 	  
-  for( std::unordered_map<std::string,CandidateNtuplizer*>::iterator it = nTuplizers_.begin(); it != nTuplizers_.end(); ++it ){
+  for( std::map<std::string,CandidateNtuplizer*>::iterator it = nTuplizers_.begin(); it != nTuplizers_.end(); ++it ){
     //std::cout << "deconstructor: Branches: " << it->first << std::endl;
     delete it->second;
   }
@@ -218,7 +197,7 @@ void Ntuplizer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
   //  std::cout<<" ----------------- before the branches loop"<<std::endl; 
 
   bool isSave = true;
-  for( std::unordered_map<std::string,CandidateNtuplizer*>::iterator it = nTuplizers_.begin(); it != nTuplizers_.end(); ++it ){
+  for( std::map<std::string,CandidateNtuplizer*>::iterator it = nTuplizers_.begin(); it != nTuplizers_.end(); ++it ){
 
     isSave = (it->second)->fillBranches( iEvent, iSetup );
     //    std::cout << "Fill Branchines: " << it->first << ", result = " << isSave << std::endl;

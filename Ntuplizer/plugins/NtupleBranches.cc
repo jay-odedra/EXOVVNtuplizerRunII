@@ -636,25 +636,4 @@ void NtupleBranches::reset( void ){
 } 
 
 void NtupleBranches::LabelHistograms( std::map< std::string, bool >& runFlags ){
-  std::vector bins_string = {"Precut", "Trigger","#tau #mu", "#tau hadron", "---","#tau  presence"};
-  for(size_t i=0; i< bins_string.size(); i++){
-    cutflow_perevt->GetXaxis()->SetBinLabel(i+1, bins_string[i]);
-  }
-
-
-//  if ( runFlags["useHammer"] ){
-//    std::vector bins_hammer = {"den", "num", "num_a0_up", "num_a0_down", "num_a1_up", "num_a1_down","num_a2_up", "num_a2_down", "num_b0_up", "num_b0_down", "num_b1_up", "num_b1_down","num_b2_up", "num_b2_down", "num_c1_up", "num_c1_down", "num_c2_up", "num_c2_down", "num_d0_up", "num_d0_down", "num_d1_up", "num_d1_down","num_d2_up", "num_d2_down"};
-//    
-//    for(size_t i=0; i< bins_hammer.size(); i++){
-//      hammer_width->GetXaxis()->SetBinLabel(i+1, bins_hammer[i]);
-//    }
-//  }
-
-
-  if ( runFlags["doGenHist"] ){
-    std::vector bins_string = { "#mu", "#pi^{0}", "#pi^{#pm}","#rho^{0}","#rho^{#pm}","#eta","#eta^{`}","#omega","#phi","K^{0}","K^{#pm}","K^{*0}","K^{*#pm}","D^{#pm}","D^{0}","#eta_{c}","#eta_{b}","#Upsilon"};
-    for(size_t i=0; i< bins_string.size(); i++){
-      genParticle_Bdau_X_id->GetXaxis()->SetBinLabel(i+1, bins_string[i]);
-    }       
-  }
 }

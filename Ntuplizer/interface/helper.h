@@ -10,7 +10,7 @@
 #include "DataFormats/PatCandidates/interface/PackedCandidate.h"
 #include "DataFormats/Candidate/interface/Candidate.h"
 
-#include "JetMETCorrections/Modules/interface/JetResolution.h"
+//#include "JetMETCorrections/Modules/interface/JetResolution.h"
 //#include <CondFormats/JetMETObjects/interface/JetResolutionObject.h>
 
 #include "DataFormats/BeamSpot/interface/BeamSpot.h"
@@ -87,7 +87,7 @@
 #include "PhysicsTools/JetMCUtils/interface/JetMCTag.h"
 
 #include "FWCore/ParameterSet/interface/FileInPath.h"
-#include "PhysicsTools/TensorFlow/interface/TensorFlow.h"
+//#include "PhysicsTools/TensorFlow/interface/TensorFlow.h"
 
 #include "DataFormats/CaloTowers/interface/CaloTowerCollection.h"
 

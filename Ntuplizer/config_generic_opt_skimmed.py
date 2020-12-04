@@ -56,8 +56,8 @@ options.maxEvents = -1
 
 #2015 data file
 options.inputFiles = [
-#  '/store/himc/HINPbPbWinter16DR/ggBBbar_4f_TuneCUETP8M1_5p02TeV_MG5_aMCatNLO_pythia8/AODSIM/NoPU_75X_mcRun2_HeavyIon_v14-v1/20000/2A31F974-711E-EB11-92FB-20040FEABE68.root',
-  'file:/scratch/ytakahas/2A31F974-711E-EB11-92FB-20040FEABE68.root'
+  '/store/himc/HINPbPbWinter16DR/ggBBbar_4f_TuneCUETP8M1_5p02TeV_MG5_aMCatNLO_pythia8/AODSIM/NoPU_75X_mcRun2_HeavyIon_v14-v1/20000/2A31F974-711E-EB11-92FB-20040FEABE68.root',
+#  'file:/scratch/ytakahas/2A31F974-711E-EB11-92FB-20040FEABE68.root'
 #  '/store/hidata/HIRun2015/HIForward/AOD/02May2016-v1/00000/0038049F-0D25-E611-B57F-F01FAFD691F4.root'
 #                      '/store/user/gkrintir/HIForward/HIForward_HIRun2015-02May2016-v1_v2/200825_234941/0000/HIForward_HIRun2015-02May2016-v1_MiniAOD_274.root',
 #                      '/store/user/gkrintir/HIForward/HIForward_HIRun2015-02May2016-v1_v2/200825_234941/0000/HIForward_HIRun2015-02May2016-v1_MiniAOD_275.root',

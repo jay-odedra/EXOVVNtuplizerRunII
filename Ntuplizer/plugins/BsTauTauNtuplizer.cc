@@ -52,7 +52,6 @@ bool BsTauTauNtuplizer::fillBranches( edm::Event const & event, const edm::Event
      ********************************************************************/
 
     event.getByToken(HLTtriggersToken_, HLTtriggers_);
-    nBranches_->cutflow_perevt->Fill(0);
 
     // bool isTriggered = false;
     const edm::TriggerNames& trigNames = event.triggerNames(*HLTtriggers_);
@@ -86,7 +85,6 @@ bool BsTauTauNtuplizer::fillBranches( edm::Event const & event, const edm::Event
 
     if(!trigMatch) return false;
 
-    nBranches_->cutflow_perevt->Fill(1);
 
     /********************************************************************
      *
@@ -171,7 +169,6 @@ bool BsTauTauNtuplizer::fillBranches( edm::Event const & event, const edm::Event
 
     //    std::cout << "number of matched muon = " << muoncollection.size() << std::endl;
     if(!( muoncollection.size() >= 1)) return false;
-    nBranches_->cutflow_perevt->Fill(2);
     
     iSetup.get<TransientTrackRecord>().get("TransientTrackBuilder", builder);
     
@@ -1172,7 +1169,6 @@ bool BsTauTauNtuplizer::fillBranches( edm::Event const & event, const edm::Event
     nBranches_->IsBsTauTau.push_back(1.);
     nBranches_->BsTauTau_nCandidates.push_back(ncomb);
 
-    nBranches_->cutflow_perevt->Fill(3);
     return true;
 
 

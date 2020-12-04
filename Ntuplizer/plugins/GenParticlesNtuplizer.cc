@@ -65,16 +65,13 @@ bool GenParticlesNtuplizer::fillBranches( edm::Event const & event, const edm::E
                     std::vector<int> bin={13,111,211,113,213,221,331,233,333,311,321,313,323,411,421,441,551,553};
                     std::vector<int>::iterator it =std::find(bin.begin(), bin.end(),fabs((*genParticles_)[p].daughter(dau_index)->pdgId())); 
                     if (it==bin.end() ) continue;
-                    int index = std::distance(bin.begin(), it);
+                   // int index = std::distance(bin.begin(), it);
                     // mu+-, pi0,, pi+-,rho0,rho+-,eta, etaP,omega,phi,K0, K+, K*0,K*+, D+
                     //    D0, eta_c,eta_b, upsilon.
                   
                      
   
                      
-                    // nBranches_->genParticle_Bdau_X_id->Fill(index); 
-                    nBranches_->genParticle_Bdau_X_id->Fill(index); 
-                  
                  
                     X.SetPtEtaPhiM((*genParticles_)[p].daughter(dau_index)->pt(),
                                    (*genParticles_)[p].daughter(dau_index)->eta(),
@@ -82,25 +79,6 @@ bool GenParticlesNtuplizer::fillBranches( edm::Event const & event, const edm::E
                                    (*genParticles_)[p].daughter(dau_index)->mass());
                
                  
-                }
-                if (X.Pt() > 0) {
-                    nBranches_->genParticle_Bdau_X_pt->Fill(X.Pt()); 
-                    nBranches_->genParticle_Bdau_X_eta->Fill(X.Eta()); 
-                    nBranches_->genParticle_Bdau_X_phi->Fill(X.Phi()); 
-                    nBranches_->genParticle_Bdau_mu1_pt->Fill(mu1.Pt()); 
-                    nBranches_->genParticle_Bdau_mu1_eta->Fill(mu1.Eta()); 
-                    nBranches_->genParticle_Bdau_mu1_phi->Fill(mu1.Phi()); 
-                    nBranches_->genParticle_Bdau_mu2_pt->Fill(mu2.Pt()); 
-                    nBranches_->genParticle_Bdau_mu2_eta->Fill(mu2.Eta()); 
-                    nBranches_->genParticle_Bdau_mu2_phi->Fill(mu2.Phi()); 
-                    nBranches_->genParticle_Bdau_Jpsi_mass->Fill((mu1+mu2).M()); 
-                    nBranches_->genParticle_Bdau_Jpsi_pt->Fill((mu1+mu2).Pt()); 
-                    nBranches_->genParticle_Bdau_Jpsi_eta->Fill((mu1+mu2).Eta()); 
-                    nBranches_->genParticle_Bdau_Jpsi_phi->Fill((mu1+mu2).Phi()); 
-                    nBranches_->genParticle_Bvis_mass->Fill((mu1+mu2+X).M()); 
-                    nBranches_->genParticle_Bvis_pt->Fill((mu1+mu2+X).Pt()); 
-                    nBranches_->genParticle_Bvis_eta->Fill((mu1+mu2+X).Eta()); 
-                    nBranches_->genParticle_Bvis_phi->Fill((mu1+mu2+X).Phi()); 
                 }
             }
         }
