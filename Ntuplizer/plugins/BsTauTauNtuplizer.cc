@@ -52,7 +52,6 @@ bool BsTauTauNtuplizer::fillBranches( edm::Event const & event, const edm::Event
      ********************************************************************/
 
     event.getByToken(HLTtriggersToken_, HLTtriggers_);
-    nBranches_->cutflow_perevt->Fill(0);
 
     // bool isTriggered = false;
     const edm::TriggerNames& trigNames = event.triggerNames(*HLTtriggers_);
@@ -86,7 +85,6 @@ bool BsTauTauNtuplizer::fillBranches( edm::Event const & event, const edm::Event
 
     if(!trigMatch) return false;
 
-    nBranches_->cutflow_perevt->Fill(1);
 
     /********************************************************************
      *
@@ -105,7 +103,7 @@ bool BsTauTauNtuplizer::fillBranches( edm::Event const & event, const edm::Event
 
     //    std::cout << "#muons" << muons_->size() << std::endl;
     // evt Triggered
-
+    //    for (std::vector<reco::Muon>::const_iterator muon = muons_->begin(); muon != muons_->end(); ++muon) {
     for(size_t imuon = 0; imuon < muons_->size(); ++ imuon){
 
         const reco::Muon & muon = (*muons_)[imuon];
@@ -171,7 +169,6 @@ bool BsTauTauNtuplizer::fillBranches( edm::Event const & event, const edm::Event
 
     //    std::cout << "number of matched muon = " << muoncollection.size() << std::endl;
     if(!( muoncollection.size() >= 1)) return false;
-    nBranches_->cutflow_perevt->Fill(2);
     
     iSetup.get<TransientTrackRecord>().get("TransientTrackBuilder", builder);
     
@@ -244,8 +241,6 @@ bool BsTauTauNtuplizer::fillBranches( edm::Event const & event, const edm::Event
       //      if(!pf.hasTrackDetails()) continue;
       /**************** ARASH **********************************/
       
-      Float_t precut_dz = pf.vz() - closestVertex.position().z();
-      if(TMath::Abs(precut_dz) > c_dz) continue;
       
       //        TLorentzVector temp;
       //        temp.SetPtEtaPhiM(pf.pt(), pf.eta(), pf.phi(), 0.13957018);
@@ -267,6 +262,10 @@ bool BsTauTauNtuplizer::fillBranches( edm::Event const & event, const edm::Event
       if(TMath::Abs(pf.pdgId())!=211) continue; 
       if(TMath::Abs(pf.eta()) > 2.5) continue; 
       
+      Float_t precut_dz = pf.vz() - closestVertex.position().z();
+      if(TMath::Abs(precut_dz) > c_dz) continue;
+
+
       //      Float_t _dR1 = reco::deltaR(pf.eta(), pf.phi(), 
       //				  mu1_fit->eta(), mu1_fit->phi());
       //      
@@ -1172,7 +1171,6 @@ bool BsTauTauNtuplizer::fillBranches( edm::Event const & event, const edm::Event
     nBranches_->IsBsTauTau.push_back(1.);
     nBranches_->BsTauTau_nCandidates.push_back(ncomb);
 
-    nBranches_->cutflow_perevt->Fill(3);
     return true;
 
 

@@ -37,7 +37,7 @@ Ntuplizer::Ntuplizer(const edm::ParameterSet& iConfig):
   genparticleToken_     	    (consumes<reco::GenParticleCollection>(iConfig.getParameter<edm::InputTag>("genparticles"))),
   gentauToken_     	          (consumes<std::vector<reco::GenJet>>(iConfig.getParameter<edm::InputTag>("gentaus"))),
   
-  muonToken_	      	        (consumes<reco::MuonCollection>(iConfig.getParameter<edm::InputTag>("muons"))),
+  muonToken_	      	        (consumes<std::vector<reco::Muon>>(iConfig.getParameter<edm::InputTag>("muons"))),
   CaloTowerCollection_        (consumes<edm::SortedCollection<CaloTower>>(edm::InputTag("towerMaker"))),
   
   

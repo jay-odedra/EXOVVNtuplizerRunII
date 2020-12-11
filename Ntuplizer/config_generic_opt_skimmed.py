@@ -52,7 +52,7 @@ options.register( 'runUpToEarlyF',
 
 
 #options.maxEvents = 2000
-options.maxEvents = -1
+options.maxEvents = 1000
 
 #2015 data file
 options.inputFiles = [
@@ -616,6 +616,7 @@ if config["RUNONMC"]:
 
   process.ntuplizer.vertices = cms.InputTag("hiSelectedVertex")
   process.ntuplizer.packedpfcandidates = cms.InputTag('particleFlowTmp')
+  process.ntuplizer.genparticles = cms.InputTag("genParticles")
 
 process.p += process.ntuplizer
 process.p.associate(pattask)

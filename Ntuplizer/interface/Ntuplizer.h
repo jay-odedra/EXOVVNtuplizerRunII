@@ -22,6 +22,10 @@
 #include "SimDataFormats/GeneratorProducts/interface/LHEEventProduct.h"
 #include "SimDataFormats/GeneratorProducts/interface/LHERunInfoProduct.h"
 #include "GeneratorInterface/LHEInterface/interface/LHEEvent.h"
+
+#include "DataFormats/HepMCCandidate/interface/GenParticle.h"
+#include "DataFormats/HepMCCandidate/interface/GenParticleFwd.h"
+
 class NtupleBranches;
 class CandidateNtuplizer;
 
