@@ -26,7 +26,10 @@ config["DOVERTICES"] = True
 config["DOMISSINGET"] = False
 
 config["DOJPSIMU"] = False
-config["DOJPSITAU"] = True
+config["DOJPSITAU"] = False
+config["DOJPSIK"] = False
+config["DOJPSIKE"] = True
+config["DOROB"] = False
 
 config["DNNFILE_PERPF"] = "data/DNN/BcJPsi/TAU_UL18/DUMMY"
 config["DNNFILE_PEREVT_MC"] = "data/DNN/BcJPsi/TAU_MCBKG/DUMMY"

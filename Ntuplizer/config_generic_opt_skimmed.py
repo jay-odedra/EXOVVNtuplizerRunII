@@ -14,6 +14,9 @@ process = cms.Process("Ntuple")
 process.load("Configuration.StandardSequences.MagneticField_cff")
 process.load('Configuration.Geometry.GeometryRecoDB_cff')
 
+from TrackingTools.GeomPropagators.AnalyticalPropagator_cfi import AnalyticalPropagator
+
+
 process.TFileService = cms.Service("TFileService",
                                     fileName = cms.string('flatTuple.root')
                                    )
@@ -31,7 +34,7 @@ isData = True
 
 ### SWITCHES ###
 
-print 'isData? ', isData
+print('isData? ', isData)
 
 
 config["ISBKG"] = False
@@ -39,7 +42,7 @@ config["ISBKG"] = False
 if isData:
   config["RUNONMC"] = False
   config["USEHAMMER"] = False
-  config["USEJSON"] = True
+  config["USEJSON"] = False
   config["DOGENPARTICLES"] = False
   config["DOGENEVENT"] = False
   config["DOPILEUP"] = False
@@ -47,17 +50,22 @@ if isData:
 
 else:
   config["RUNONMC"] = True
-  config["USEHAMMER"] = False
+  
+  if not config["ISBKG"]:
+    config["USEHAMMER"] = True
+  else:
+    config["USEHAMMER"] = False
+
   config["USEJSON"] = False
   config["DOGENPARTICLES"] = True
   config["DOGENEVENT"] = True
   config["DOPILEUP"] = True
   config["DOGENHIST"] = True
 
-print '-'*80
+print('-'*80)
 for key, val in config.items():
-  print key.ljust(20), '====>', val
-print '-'*80
+  print(key.ljust(20), '====>', val)
+print('-'*80)
 
 
 
@@ -84,24 +92,97 @@ options.register( 'runUpToEarlyF',
 
 
 
-options.maxEvents = 1000
-#options.maxEvents = -1
+#options.maxEvents = 1000
+options.maxEvents = -1
 
 
 if isData:
-  options.inputFiles = '/store/data/Run2018D/Charmonium/MINIAOD/12Nov2019_UL2018-v1/280000/D7FD376D-30CD-AA48-8D03-E0220043BBDE.root'
+#  options.inputFiles = '/store/user/ytakahas/EphemeralZeroBias/EphemeralZeroBias3/winter21/211205_060748/0000/output_242.root'
+  options.inputFiles = [
+
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/0356dc7a-65ed-4877-a329-91ea198780fb.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/0ab7145f-b18c-44ff-a6ac-abf095df2c74.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/0af24a80-1c53-4f76-baf0-e153fb80b90f.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/1e7c70d2-8723-4e21-b17b-1b9401de03b8.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/21107bb2-850f-460f-b6bd-2c4e473c3565.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/216c7ab1-b990-445c-8fb8-415d124327be.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/2789b4ec-e433-4f6c-bf43-332105b5bd56.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/353477a1-e5c3-45a3-abcb-9db4ea5d3762.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/396726cf-c8c6-4103-8d32-e39acdedf982.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/3a20b212-04fa-45a3-8599-e9b905743d06.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/3aa55f50-5db8-489a-bc58-e9e4463e1cb8.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/40ad741a-86ee-4d8a-860a-08cd9e5c3250.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/489ec76a-db61-4817-8396-36f23fc87c5c.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/49fa69c1-edb9-46e4-bcb6-91b0d055e3f9.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/51f04118-3427-47a7-833d-c1e2fb75b333.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/5258b503-f72e-43ca-a422-bd4c8494cb30.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/5a06eb66-41d3-4100-a51c-da0bee984431.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/5c575d92-e0a5-4fbe-b9e7-fefb534345db.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/5ccc006b-c504-4123-ae7c-2ebadbf30ca7.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/60847469-b9a2-42fa-a27a-9560365b3fcd.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/6871d038-77ac-4e38-845c-f2732fd5363f.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/69e40a46-a527-4270-8e78-24328f6220da.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/726226bf-b70a-4615-9732-63cbe1fac7a0.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/84f3ce9e-e36d-4150-9f53-cf3b03911460.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/86e355e9-7563-42ce-9a8c-e7e928867914.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/96d115f8-b1bb-4661-8a1f-542b1c4445bf.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/a4f265b2-1e70-49e5-a72c-a57bfcc90c3f.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/ada00ca8-2a23-45cb-8694-77bf36c4d9b0.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/b2dccab2-6d68-4844-adeb-66af28b63e7e.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/b81f6c25-e40c-430e-8dd4-cac7509ff8c4.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/c3fd7f61-3260-46f9-95c3-1de10f4dc054.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/c7ba2418-76d7-41f0-a29c-f8b22233c8e2.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/ca97d216-c801-4ecb-b40b-971dd636ec35.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/d088e565-fa85-4169-b9f6-2e49a958bb1c.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/d2fe4c1b-040f-4820-b627-8b66206feaee.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/d5010f0a-3cbc-4842-9e72-5ea56f216c66.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/e2148e60-8df5-403f-92f6-72dea5a31fb8.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/e4a52e7e-adc9-4899-99bb-e53103dc557d.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/e4f611c7-5c6d-45f9-b686-0e5d0f2b41cc.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/e5119c34-4bd2-44fe-bdf2-71c0a4290e3e.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/f83a0a9d-7956-4904-8587-75ce4ce9337e.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/f87e7adb-a3c0-4c1e-af05-ed7a5e15484a.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/fa76243e-e07e-4e21-81c8-5222c8f84516.root',
+'/store/data/Run2022B/HLTPhysics/MINIAOD/PromptReco-v1/000/355/404/00000/fb664f69-f96e-40b9-a09b-0736b5e850f4.root',
+
+    
+]
+
+#  options.inputFiles = 'file:/pnfs/psi.ch/cms/trivcat/store/user/ytakahas/purityStudy_CMSSW12_1_0/EphemeralZeroBias1/winter21/211129_085534/0000/output_*.root'
+
+#  options.inputFiles = "file:/work/ytakahas/work/HLT/CMSSW_12_1_0/src/output.root"
+
+#  options.inputFiles = []
+#  import glob
+#
+#  listoffiles  = glob.glob('/pnfs/psi.ch/cms/trivcat/store/user/ytakahas/purityStudy_CMSSW12_1_0/EphemeralZeroBias1/winter21/211129_085534/0000/output_11*.root')
+#
+#  for file in listoffiles:
+#    print('check',file)
+#    options.inputFiles.append('file:' + file)
+  
 
 else:
 
   if config["ISBKG"]:
-    #  options.inputFiles = '/store/mc/RunIISummer20UL18MiniAOD/HbToJPsiMuMu_TuneCP5_13TeV-pythia8-evtgen/MINIAODSIM/106X_upgrade2018_realistic_v11_L1v1-v1/00000/014EC954-4C5E-AD48-BB44-401D779323E3.root'
-    options.inputFiles = 'file:/scratch/ytakahas/HbToJPsiMuMu/014EC954-4C5E-AD48-BB44-401D779323E3.root'
+#    options.inputFiles = '/store/mc/RunIISummer20UL18MiniAOD/HbToJPsiMuMu_TuneCP5_13TeV-pythia8-evtgen/MINIAODSIM/106X_upgrade2018_realistic_v11_L1v1-v1/00000/014EC954-4C5E-AD48-BB44-401D779323E3.root'
+#    options.inputFiles = '/store/user/ytakahas/qq_JpsiX_MuMu_20211012/UL18_MINIAOD_v1_noDuplCheck/211018_022715/0000/output_file_MINIAOD_92.root'
+
+    options.inputFiles = []
+    for a in range(1,176):
+      options.inputFiles.append('/store/user/ytakahas/qq_JpsiX_MuMu_20211012/UL18_MINIAOD_v1_noDuplCheck/211018_022715/0000/output_file_MINIAOD_' + str(a) + '.root')
+
+#    options.inputFiles = 'file:/scratch/ytakahas/HbToJPsiMuMu/014EC954-4C5E-AD48-BB44-401D779323E3.root'
   else:
-    options.inputFiles = '/store/mc/RunIISummer19UL18MiniAOD/BcToJPsiTauNu_TuneCP5_13TeV-bcvegpy2-pythia8-evtgen/MINIAODSIM/106X_upgrade2018_realistic_v11_L1v1_ext1-v2/100000/02F13381-1D94-CC43-948A-2EFFB8572949.root'
+#    options.inputFiles = '/store/mc/RunIISummer19UL18MiniAOD/BcToJPsiTauNu_TuneCP5_13TeV-bcvegpy2-pythia8-evtgen/MINIAODSIM/106X_upgrade2018_realistic_v11_L1v1_ext1-v2/100000/02F13381-1D94-CC43-948A-2EFFB8572949.root'
+#    options.inputFiles = '/store/mc/RunIISummer20UL18MiniAOD/BcToJPsiMuMu_inclusive_TuneCP5_13TeV-bcvegpy2-pythia8-evtgen/MINIAODSIM/106X_upgrade2018_realistic_v11_L1v1-v2/00000/06261AC0-CB13-4241-8FCE-729E5E649532.root'
 
+#    options.inputFiles = 'file:/work/ytakahas/work/prod/nanoAOD/Trigger_MC_Winter21/EGM-Run3Winter21DRMiniAOD-00021.root'
+    options.inputFiles = 'root://cms-xrd-global.cern.ch//store/mc/Run3Winter21DRMiniAOD/BuToKee_SoftQCDnonD_TuneCP5_14TeV-pythia8-evtgen/MINIAODSIM/FlatPU30to80FEVT_rndm_112X_mcRun3_2021_realistic_v16-v2/260000/0df5bfde-eaca-42fd-a9a8-2ff483e9db6f.root'
+#    options.inputFiles = '/store/mc/RunIIAutumn18MiniAOD/BuToKee_Mufilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/MINIAODSIM/Custom_RK_BParking_for_RK_102X_upgrade2018_realistic_v15-v2/110000/00D9F371-FE16-E744-A1E0-29A7AEBCAF25.root'
 
+print('file=', options.inputFiles)
 
-  
 
 options.parseArguments()
 
@@ -112,9 +193,9 @@ process.options  = cms.untracked.PSet(
                      )
 
 
-if isData:
-  print 'setting process.options.numberOfThreads = 2'
-  process.options.numberOfThreads=cms.untracked.uint32(2)
+#if isData:
+#  print('setting process.options.numberOfThreads = 2')
+#  process.options.numberOfThreads=cms.untracked.uint32(2)
 
 
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(options.maxEvents) )
@@ -126,7 +207,7 @@ if config["RUNONMC"]:
   process.source = cms.Source("PoolSource",
                               fileNames = cms.untracked.vstring(options.inputFiles),
                               # Run, lumi, Event
-#                              eventsToProcess = cms.untracked.VEventRange('1:35137:14345'),
+#                              eventsToProcess = cms.untracked.VEventRange('1:15965:82689'),
                               duplicateCheckMode = cms.untracked.string("noDuplicateCheck"),                              
                               ) 
 else:                    
@@ -135,7 +216,7 @@ else:
 #                              skipEvents=cms.untracked.uint32(23000)
                               ) 
 
-print " process source filenames %s" %(process.source)
+print(" process source filenames %s" %(process.source))
 
 #print " process source filenames ", process.source.fileNames
 ######## Sequence settings ##########
@@ -148,7 +229,7 @@ if config["RUNONMC"] or config["JSONFILE"].find('reMiniAOD') != -1:
 process.load("FWCore.MessageLogger.MessageLogger_cfi")
 
 process.MessageLogger.cerr.threshold = 'INFO'
-process.MessageLogger.categories.append('Ntuple')
+#process.MessageLogger.categories.append('Ntuple')
 process.MessageLogger.cerr.INFO = cms.untracked.PSet(
     limit = cms.untracked.int32(1)
 )
@@ -157,10 +238,11 @@ process.MessageLogger.cerr.FwkReport.reportEvery = 1000
 
 ####### Define conditions ##########
 #process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_cff")
-process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_condDBv2_cff')
-from Configuration.AlCa.GlobalTag import GlobalTag
+#process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_condDBv2_cff')
 
-GT = ''
+from Configuration.AlCa.GlobalTag import GlobalTag as customiseGlobalTag
+
+GT = 'auto:run3_hlt'
 
 
 jetcorr_levels=[]
@@ -247,7 +329,7 @@ jecLevelsAK4 = []
 jecLevelsAK8Puppi = []
 jecLevelsForMET = []
 
-print "1. options.RunPeriod ", options.RunPeriod
+print("1. options.RunPeriod ", options.RunPeriod)
 if options.RunPeriod=="" : options.RunPeriod=options.inputFiles[0]
 
 if  config["RUNONMC"] :
@@ -317,16 +399,44 @@ else : #Data
    jecAK4chsUncFile = "JEC/%s_DATA_Uncertainty_AK4PFchs.txt"%(JECprefix)
  
 #   GT = '106X_dataRun2_v27' 
-   print "jec JEC_runDependent_suffix %s ,  prefix %s " %(JEC_runDependent_suffix,JECprefix)
+   print("jec JEC_runDependent_suffix %s ,  prefix %s " %(JEC_runDependent_suffix,JECprefix))
 
-print "jec prefix ", JECprefix
+print("jec prefix ", JECprefix)
 
-print "doing corrections  to met on the fly %s" ,config["CORRMETONTHEFLY"]
+print("doing corrections  to met on the fly %s" ,config["CORRMETONTHEFLY"])
 
-print "*************************************** GLOBAL TAG *************************************************" 
-print GT
-print "****************************************************************************************************" 
-process.GlobalTag = GlobalTag(process.GlobalTag, GT)
+print("*************************************** GLOBAL TAG *************************************************" )
+print(GT)
+print("****************************************************************************************************" )
+
+process.GlobalTag = cms.ESSource( "PoolDBESSource",
+  DBParameters = cms.PSet(
+    connectionRetrialTimeOut = cms.untracked.int32( 60 ),
+    idleConnectionCleanupPeriod = cms.untracked.int32( 10 ),
+    enableReadOnlySessionOnUpdateConnection = cms.untracked.bool( False ),
+    enablePoolAutomaticCleanUp = cms.untracked.bool( False ),
+    messageLevel = cms.untracked.int32( 0 ),
+    authenticationPath = cms.untracked.string( "." ),
+    connectionRetrialPeriod = cms.untracked.int32( 10 ),
+    connectionTimeOut = cms.untracked.int32( 0 ),
+    enableConnectionSharing = cms.untracked.bool( True )
+  ),
+  connect = cms.string( "frontier://FrontierProd/CMS_CONDITIONS" ),
+  globaltag = cms.string( "103X_dataRun2_HLT_v1" ),
+  snapshotTime = cms.string( "" ),
+  toGet = cms.VPSet(
+  ),
+  DumpStat = cms.untracked.bool( False ),
+  ReconnectEachRun = cms.untracked.bool( False ),
+  RefreshAlways = cms.untracked.bool( False ),
+  RefreshEachRun = cms.untracked.bool( False ),
+  RefreshOpenIOVs = cms.untracked.bool( False ),
+  pfnPostfix = cms.untracked.string( "None" )
+)
+
+
+
+process.GlobalTag = customiseGlobalTag(process.GlobalTag, globaltag = GT)
 
 
 
@@ -358,6 +468,9 @@ process.ntuplizer = cms.EDAnalyzer("Ntuplizer",
     doPileUp	      = cms.bool(config["DOPILEUP"]),
     doJpsiMu	      = cms.bool(config["DOJPSIMU"]),
     doJpsiTau	      = cms.bool(config["DOJPSITAU"]),
+    doJpsiK	      = cms.bool(config["DOJPSIK"]),
+    doJpsiKE	      = cms.bool(config["DOJPSIKE"]),
+    doRob	      = cms.bool(config["DOROB"]),
     doVertices	      = cms.bool(config["DOVERTICES"]),
     doMissingEt       = cms.bool(config["DOMISSINGET"]),
     doGenHist         = cms.bool(config["DOGENHIST"]),
@@ -377,7 +490,9 @@ process.ntuplizer = cms.EDAnalyzer("Ntuplizer",
     beamSpot = cms.InputTag("offlineBeamSpot"),
     taus = cms.InputTag("slimmedTaus"),
     muons = cms.InputTag("slimmedMuons"),
-    electrons = cms.InputTag("slimmedElectrons"),
+                                   electrons = cms.InputTag("slimmedElectrons"),
+                                   hltobj = cms.InputTag("hltEgammaHLTExtra", "", "MYHLT"),
+                                   l1obj = cms.InputTag("hltGtStage2Digis", "EGamma", "MYHLT"),
     ebRecHits = cms.InputTag("reducedEgamma","reducedEBRecHits"),
 
 #    eleHEEPId51Map = cms.InputTag("egmGsfElectronIDs:heepElectronID-HEEPV51"),
@@ -462,7 +577,7 @@ process.ntuplizer = cms.EDAnalyzer("Ntuplizer",
     # summary
     noiseFilterSelection_metFilters = cms.string('Flag_METFilters'),
 
-    packedpfcandidates = cms.InputTag('packedPFCandidates'),
+                                   packedpfcandidates = cms.InputTag('packedPFCandidates'),
     SecondaryVertices = cms.InputTag('slimmedSecondaryVertices'),
 #    losttrack = cms.InputTag('lostTracks')
 )
@@ -501,17 +616,23 @@ process.TransientTrackBuilderESProducer = cms.ESProducer("TransientTrackBuilderE
 ####### Final path ##########
 process.p = cms.Path()
 
-process.p += process.ecalBadCalibReducedMINIAODFilter
+#process.p += process.ecalBadCalibReducedMINIAODFilter
 
 #if config["RUNONMC"]:
 #  process.load("PhysicsTools.JetMCAlgos.TauGenJets_cfi")
 #  process.tauGenJets.GenParticles = cms.InputTag('prunedGenParticles')
 #  process.p += process.tauGenJets
 
+process.nano = cms.EDAnalyzer('NanoAnalyzer',
+                              isData = cms.bool(True)
+)
 
-process.p += process.ntuplizer
-process.p.associate(pattask)
+process.p = cms.Path(process.nano)
 
-print pattask
+
+#process.p += process.ntuplizer
+#process.p.associate(pattask)
+
+#print(pattask)
 
 #  LocalWords:  tauIdMVAIsoDBoldDMwLT

@@ -67,7 +67,7 @@ def main():
 
     options = getOptions()
 
-    #from WMCore.Configuration import Configuration
+    from WMCore.Configuration import Configuration
     from CRABClient.UserUtilities import config
     config = config()
 
@@ -84,8 +84,8 @@ def main():
     config.JobType.psetName = options.config
 
     if options.isData:
-        config.JobType.maxMemoryMB = 5000
-        config.JobType.numCores = 2
+        config.JobType.maxMemoryMB = 4000
+#        config.JobType.numCores = 2
     else:
         config.JobType.maxMemoryMB = 4000
 #        config.JobType.numCores = 2

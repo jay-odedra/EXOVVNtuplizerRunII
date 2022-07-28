@@ -48,7 +48,8 @@ def miniAOD_insertMETFiltersInSchedule(process):
                 break
         for pname in All_METFilters:
             path = getattr(process,pname)
-            if not isinstance(path, cms.Path): raise RuntimeError, "Path %s is not a cms.Path?" % pathname
+            if not isinstance(path, cms.Path): 
+                raise RuntimeError  # "Path %s is not a cms.Path?" % pathname
             if found == -1: process.schedule.append(path)
             else:           process.schedule.insert(found, path)
 	    
