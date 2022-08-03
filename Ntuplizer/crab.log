@@ -1,0 +1,820 @@
+DEBUG 2022-08-02 00:58:31.125 UTC: 	 CRAB Client version: v3.220323
+DEBUG 2022-08-02 00:58:31.125 UTC: 	 Running on: Linux lxplus706.cern.ch 3.10.0-1160.66.1.el7.x86_64 #1 SMP Wed May 18 16:02:34 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2022-08-02 00:58:31.125 UTC: 	 Executing command: 'submit'
+DEBUG 2022-08-02 00:58:31.143 UTC: 	 Found CRAB cache file /afs/cern.ch/user/j/jodedra/.crab3
+INFO 2022-08-02 00:58:31.704 UTC: 	 Will use CRAB configuration file crab.py
+DEBUG 2022-08-02 00:58:31.704 UTC: 	 Loading CRAB configuration file.
+DEBUG 2022-08-02 00:58:31.731 UTC: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+ERROR 2022-08-02 00:58:31.731 UTC: 	 Invalid CRAB configuration:
+ when ignoreLocality is set a valid site white list must be specified using the Site.whitelist parameter
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+ERROR 2022-08-02 00:58:31.731 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/bin/crab.py", line 159, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/bin/crab.py", line 144, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/Commands/submit.py", line 36, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/Commands/SubCommand.py", line 316, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/Commands/SubCommand.py", line 94, in loadConfig
+    raise ConfigurationException(configmsg)
+CRABClient.ClientExceptions.ConfigurationException: Invalid CRAB configuration:
+ when ignoreLocality is set a valid site white list must be specified using the Site.whitelist parameter
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+INFO 2022-08-02 00:58:31.742 UTC: 	 Log file is /eos/home-j/jodedra/yutadi-electron/CMSSW_12_4_3/src/EXOVVNtuplizerRunII/Ntuplizer/crab.log
+DEBUG 2022-08-02 09:51:22.002 UTC: 	 CRAB Client version: v3.220323
+DEBUG 2022-08-02 09:51:22.002 UTC: 	 Running on: Linux lxplus744.cern.ch 3.10.0-1160.66.1.el7.x86_64 #1 SMP Wed May 18 16:02:34 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2022-08-02 09:51:22.002 UTC: 	 Executing command: 'submit'
+DEBUG 2022-08-02 09:51:22.003 UTC: 	 Found CRAB cache file /afs/cern.ch/user/j/jodedra/.crab3
+INFO 2022-08-02 09:51:22.006 UTC: 	 Will use CRAB configuration file crab.py
+DEBUG 2022-08-02 09:51:22.006 UTC: 	 Loading CRAB configuration file.
+DEBUG 2022-08-02 09:51:22.170 UTC: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+ERROR 2022-08-02 09:51:22.170 UTC: 	 Working area '/eos/home-j/jodedra/yutadi-electron/CMSSW_12_4_3/src/EXOVVNtuplizerRunII/Ntuplizer/crab_20220802/crab__SingleMuon_Run2022C-PromptReco-v1_MINIAOD' already exists 
+Please change the requestName in the config file
+ERROR 2022-08-02 09:51:22.170 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/bin/crab.py", line 159, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/bin/crab.py", line 144, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/Commands/submit.py", line 36, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/Commands/SubCommand.py", line 318, in __init__
+    self.requestarea, self.requestname, self.logfile = createWorkArea(
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/ClientUtilities.py", line 387, in createWorkArea
+    raise ConfigException("Working area '%s' already exists \nPlease change the requestName in the config file" % fullpath)
+CRABClient.ClientExceptions.ConfigException: Working area '/eos/home-j/jodedra/yutadi-electron/CMSSW_12_4_3/src/EXOVVNtuplizerRunII/Ntuplizer/crab_20220802/crab__SingleMuon_Run2022C-PromptReco-v1_MINIAOD' already exists 
+Please change the requestName in the config file
+INFO 2022-08-02 09:51:22.187 UTC: 	 Log file is /eos/home-j/jodedra/yutadi-electron/CMSSW_12_4_3/src/EXOVVNtuplizerRunII/Ntuplizer/crab.log
+DEBUG 2022-08-02 15:50:50.496 UTC: 	 CRAB Client version: v3.220323
+DEBUG 2022-08-02 15:50:50.496 UTC: 	 Running on: Linux lxplus744.cern.ch 3.10.0-1160.66.1.el7.x86_64 #1 SMP Wed May 18 16:02:34 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2022-08-02 15:50:50.496 UTC: 	 Executing command: 'submit'
+DEBUG 2022-08-02 15:50:50.496 UTC: 	 Found CRAB cache file /afs/cern.ch/user/j/jodedra/.crab3
+INFO 2022-08-02 15:50:50.497 UTC: 	 Will use CRAB configuration file crab.py
+DEBUG 2022-08-02 15:50:50.497 UTC: 	 Loading CRAB configuration file.
+DEBUG 2022-08-02 15:50:50.502 UTC: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+ERROR 2022-08-02 15:50:50.502 UTC: 	 Working area '/eos/home-j/jodedra/yutadi-electron/CMSSW_12_4_3/src/EXOVVNtuplizerRunII/Ntuplizer/crab_20220802/crab__ParkingDoubleElectronLowMass0_Run2022C-PromptReco-v1_MINIAODBPeak' already exists 
+Please change the requestName in the config file
+ERROR 2022-08-02 15:50:50.502 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/bin/crab.py", line 159, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/bin/crab.py", line 144, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/Commands/submit.py", line 36, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/Commands/SubCommand.py", line 318, in __init__
+    self.requestarea, self.requestname, self.logfile = createWorkArea(
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/ClientUtilities.py", line 387, in createWorkArea
+    raise ConfigException("Working area '%s' already exists \nPlease change the requestName in the config file" % fullpath)
+CRABClient.ClientExceptions.ConfigException: Working area '/eos/home-j/jodedra/yutadi-electron/CMSSW_12_4_3/src/EXOVVNtuplizerRunII/Ntuplizer/crab_20220802/crab__ParkingDoubleElectronLowMass0_Run2022C-PromptReco-v1_MINIAODBPeak' already exists 
+Please change the requestName in the config file
+INFO 2022-08-02 15:50:50.507 UTC: 	 Log file is /eos/home-j/jodedra/yutadi-electron/CMSSW_12_4_3/src/EXOVVNtuplizerRunII/Ntuplizer/crab.log
+DEBUG 2022-08-02 15:51:48.925 UTC: 	 CRAB Client version: v3.220323
+DEBUG 2022-08-02 15:51:48.926 UTC: 	 Running on: Linux lxplus744.cern.ch 3.10.0-1160.66.1.el7.x86_64 #1 SMP Wed May 18 16:02:34 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2022-08-02 15:51:48.926 UTC: 	 Executing command: 'tasks'
+DEBUG 2022-08-02 15:51:48.926 UTC: 	 Found CRAB cache file /afs/cern.ch/user/j/jodedra/.crab3
+DEBUG 2022-08-02 15:51:48.926 UTC: 	 Checking credentials
+DEBUG 2022-08-02 15:51:48.926 UTC: 	 Found proxy file /tmp/x509up_u147761
+DEBUG 2022-08-02 15:51:48.926 UTC: 	 Making sure it has proper VOMS extension
+DEBUG 2022-08-02 15:51:48.926 UTC: 	 Executing command :
+ voms-proxy-info --vo --file /tmp/x509up_u147761
+DEBUG 2022-08-02 15:51:49.741 UTC: 	 output : cms
+
+ error: 
+ retcode : 0
+DEBUG 2022-08-02 15:51:49.741 UTC: 	 Getting proxy life time left
+DEBUG 2022-08-02 15:51:49.741 UTC: 	 Executing command :
+ voms-proxy-info --actimeleft --timeleft --file /tmp/x509up_u147761
+DEBUG 2022-08-02 15:51:50.271 UTC: 	 output : 32035
+32035
+
+ error: 
+ retcode : 0
+DEBUG 2022-08-02 15:51:50.271 UTC: 	 Proxy valid for 08:53:55 hours
+DEBUG 2022-08-02 15:51:50.279 UTC: 	 Encoded data for curl request: subresource=delegatedn
+DEBUG 2022-08-02 15:51:50.366 UTC: 	 Executing command :
+ curl -v -X GET -H "User-Agent: CRABClient/v3.220323" -H "Accept: */*" --data @/tmp/crab_curlData8oqebmaj --cert "/tmp/x509up_u147761" --key "/tmp/x509up_u147761" --capath "/etc/grid-security/certificates/" "https://cmsweb.cern.ch:8443/crabserver/prod/info?subresource=delegatedn" | tee /dev/stderr 
+DEBUG 2022-08-02 15:51:50.417 UTC: 	 output : {"result": [
+ {"services": ["/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod|dev)-tw(01|02|03).cern.ch|/DC=ch/DC=cern/OU=computers/CN=stefanov(m|m2).cern.ch|/DC=ch/DC=cern/OU=computers/CN=dciangot-tw.cern.ch"]}
+]}
+
+ error:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 188.184.75.82:8443...
+* Connected to cmsweb.cern.ch (188.184.75.82) port 8443 (#0)
+* ALPN, offering http/1.1
+* Cipher selection: ALL:!EXPORT:!EXPORT40:!EXPORT56:!aNULL:!LOW:!RC4:@STRENGTH
+* successfully set certificate verify locations:
+*  CAfile: /etc/pki/tls/certs/ca-bundle.crt
+*  CApath: /etc/grid-security/certificates/
+* TLSv1.2 (OUT), TLS header, Certificate Status (22):
+} [5 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Client hello (1):
+} [512 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server hello (2):
+{ [109 bytes data]
+* TLSv1.2 (IN), TLS handshake, Certificate (11):
+{ [6237 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server key exchange (12):
+{ [333 bytes data]
+* TLSv1.2 (IN), TLS handshake, Request CERT (13):
+{ [13340 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server finished (14):
+{ [4 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Certificate (11):
+} [6667 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Client key exchange (16):
+} [70 bytes data]
+* TLSv1.2 (OUT), TLS handshake, CERT verify (15):
+} [264 bytes data]
+* TLSv1.2 (OUT), TLS change cipher, Change cipher spec (1):
+} [1 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Finished (20):
+} [16 bytes data]
+* TLSv1.2 (IN), TLS change cipher, Change cipher spec (1):
+{ [1 bytes data]
+* TLSv1.2 (IN), TLS handshake, Finished (20):
+{ [16 bytes data]
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256
+* ALPN, server accepted to use http/1.1
+* Server certificate:
+*  subject: DC=ch; DC=cern; OU=computers; CN=cmsweb.cern.ch
+*  start date: Feb 17 13:05:12 2022 GMT
+*  expire date: Mar 24 13:05:12 2023 GMT
+*  subjectAltName: host "cmsweb.cern.ch" matched cert's "cmsweb.cern.ch"
+*  issuer: DC=ch; DC=cern; CN=CERN Grid Certification Authority
+*  SSL certificate verify ok.
+} [5 bytes data]
+> GET /crabserver/prod/info?subresource=delegatedn HTTP/1.1
+> Host: cmsweb.cern.ch:8443
+> User-Agent: CRABClient/v3.220323
+> Accept: */*
+> Content-Length: 22
+> Content-Type: application/x-www-form-urlencoded
+> 
+} [22 bytes data]
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 OK
+< Date: Tue, 02 Aug 2022 15:51:50 GMT
+< Server: Apache
+< Content-Type: application/json
+< Content-Length: 216
+< Vary: Accept
+< Cache-Control: max-age=3600
+< X-Rest-Status: 100
+< Etag: "531fb58a933656ea08a7f418b273fdae3c95932a"
+< X-Rest-Time: 2372.503 us
+< CMS-Server-Time: D=10754 t=1659455510402916
+< 
+{ [5 bytes data]
+100   238  100   216  100    22   8391    854 --:--:-- --:--:-- --:--:--  9520
+* Connection #0 to host cmsweb.cern.ch left intact
+{"result": [
+ {"services": ["/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod|dev)-tw(01|02|03).cern.ch|/DC=ch/DC=cern/OU=computers/CN=stefanov(m|m2).cern.ch|/DC=ch/DC=cern/OU=computers/CN=dciangot-tw.cern.ch"]}
+]}
+
+ retcode : 0
+DEBUG 2022-08-02 15:51:50.418 UTC: 	 Registering user credentials on myproxy for /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod|dev)-tw(01|02|03).cern.ch|/DC=ch/DC=cern/OU=computers/CN=stefanov(m|m2).cern.ch|/DC=ch/DC=cern/OU=computers/CN=dciangot-tw.cern.ch
+DEBUG 2022-08-02 15:51:50.418 UTC: 	 Executing command :
+ voms-proxy-info --identity --file /tmp/x509up_u147761
+DEBUG 2022-08-02 15:51:50.975 UTC: 	 output : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra
+
+ error: 
+ retcode : 0
+DEBUG 2022-08-02 15:51:50.976 UTC: 	 Getting myproxy life time left for 8b8ef16f353ac6386ac43a1dfe8c9a17c9742c0b
+DEBUG 2022-08-02 15:51:50.976 UTC: 	 Executing command :
+ myproxy-info -s myproxy.cern.ch -l 8b8ef16f353ac6386ac43a1dfe8c9a17c9742c0b
+DEBUG 2022-08-02 15:51:51.234 UTC: 	 output : username: 8b8ef16f353ac6386ac43a1dfe8c9a17c9742c0b
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod|dev)-tw(01|02|03).cern.ch|/DC=ch/DC=cern/OU=computers/CN=stefanov(m|m2).cern.ch|/DC=ch/DC=cern/OU=computers/CN=dciangot-tw.cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod|dev)-tw(01|02|03).cern.ch|/DC=ch/DC=cern/OU=computers/CN=stefanov(m|m2).cern.ch|/DC=ch/DC=cern/OU=computers/CN=dciangot-tw.cern.ch
+  timeleft: 710:52:10  (29.6 days)
+
+ error: 
+ retcode : 0
+DEBUG 2022-08-02 15:51:51.234 UTC: 	 Myproxy is valid: 2559120
+DEBUG 2022-08-02 15:51:51.234 UTC: 	 Result of myproxy credential check:
+  Credential exists on myproxy: username: 8b8ef16f353ac6386ac43a1dfe8c9a17c9742c0b  - validity: 29 days, 14:52:00
+DEBUG 2022-08-02 15:51:51.234 UTC: 	 Command use: tasks
+DEBUG 2022-08-02 15:51:51.234 UTC: 	 Options use: []
+DEBUG 2022-08-02 15:51:51.234 UTC: 	 Encoded data for curl request: subresource=version
+DEBUG 2022-08-02 15:51:51.235 UTC: 	 Executing command :
+ curl -v -X GET -H "User-Agent: CRABClient/v3.220323" -H "Accept: */*" --data @/tmp/crab_curlData96_uz07j --cert "/tmp/x509up_u147761" --key "/tmp/x509up_u147761" --capath "/etc/grid-security/certificates/" "https://cmsweb.cern.ch:8443/crabserver/prod/info?subresource=version" | tee /dev/stderr 
+DEBUG 2022-08-02 15:51:51.282 UTC: 	 output : {"result": [
+ ["3.3.19", "3.3.20", "v3", "development", "v3.220713"]
+]}
+
+ error:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 188.184.75.82:8443...
+* Connected to cmsweb.cern.ch (188.184.75.82) port 8443 (#0)
+* ALPN, offering http/1.1
+* Cipher selection: ALL:!EXPORT:!EXPORT40:!EXPORT56:!aNULL:!LOW:!RC4:@STRENGTH
+* successfully set certificate verify locations:
+*  CAfile: /etc/pki/tls/certs/ca-bundle.crt
+*  CApath: /etc/grid-security/certificates/
+* TLSv1.2 (OUT), TLS header, Certificate Status (22):
+} [5 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Client hello (1):
+} [512 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server hello (2):
+{ [109 bytes data]
+* TLSv1.2 (IN), TLS handshake, Certificate (11):
+{ [6237 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server key exchange (12):
+{ [333 bytes data]
+* TLSv1.2 (IN), TLS handshake, Request CERT (13):
+{ [13340 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server finished (14):
+{ [4 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Certificate (11):
+} [6667 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Client key exchange (16):
+} [70 bytes data]
+* TLSv1.2 (OUT), TLS handshake, CERT verify (15):
+} [264 bytes data]
+* TLSv1.2 (OUT), TLS change cipher, Change cipher spec (1):
+} [1 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Finished (20):
+} [16 bytes data]
+* TLSv1.2 (IN), TLS change cipher, Change cipher spec (1):
+{ [1 bytes data]
+* TLSv1.2 (IN), TLS handshake, Finished (20):
+{ [16 bytes data]
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256
+* ALPN, server accepted to use http/1.1
+* Server certificate:
+*  subject: DC=ch; DC=cern; OU=computers; CN=cmsweb.cern.ch
+*  start date: Feb 17 13:05:12 2022 GMT
+*  expire date: Mar 24 13:05:12 2023 GMT
+*  subjectAltName: host "cmsweb.cern.ch" matched cert's "cmsweb.cern.ch"
+*  issuer: DC=ch; DC=cern; CN=CERN Grid Certification Authority
+*  SSL certificate verify ok.
+} [5 bytes data]
+> GET /crabserver/prod/info?subresource=version HTTP/1.1
+> Host: cmsweb.cern.ch:8443
+> User-Agent: CRABClient/v3.220323
+> Accept: */*
+> Content-Length: 19
+> Content-Type: application/x-www-form-urlencoded
+> 
+} [19 bytes data]
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 OK
+< Date: Tue, 02 Aug 2022 15:51:51 GMT
+< Server: Apache
+< Content-Type: application/json
+< Content-Length: 72
+< Vary: Accept
+< Cache-Control: max-age=3600
+< X-Rest-Status: 100
+< Etag: "c0bae40b0e383f97f37604d2e156a33962099efe"
+< X-Rest-Time: 2379.894 us
+< CMS-Server-Time: D=10063 t=1659455511269092
+< 
+ 20    91    0     0  100    19      0    728 --:--:-- --:--:-- --:--:--   730{ [5 bytes data]
+100    91  100    72  100    19   2748    725 --:--:-- --:--:-- --:--:--  3370
+* Connection #0 to host cmsweb.cern.ch left intact
+{"result": [
+ ["3.3.19", "3.3.20", "v3", "development", "v3.220713"]
+]}
+
+ retcode : 0
+DEBUG 2022-08-02 15:51:51.282 UTC: 	 CRABClient version: v3.220323
+DEBUG 2022-08-02 15:51:51.282 UTC: 	 Instance is prod
+DEBUG 2022-08-02 15:51:51.282 UTC: 	 Server base url is cmsweb.cern.ch
+DEBUG 2022-08-02 15:51:51.282 UTC: 	 Command api workflow
+DEBUG 2022-08-02 15:51:51.282 UTC: 	 Encoded data for curl request: timestamp=2022-07-03
+DEBUG 2022-08-02 15:51:51.283 UTC: 	 Executing command :
+ curl -v -X GET -H "User-Agent: CRABClient/v3.220323" -H "Accept: */*" --data @/tmp/crab_curlDatab93hal0o --cert "/tmp/x509up_u147761" --key "/tmp/x509up_u147761" --capath "/etc/grid-security/certificates/" "https://cmsweb.cern.ch:8443/crabserver/prod/workflow?timestamp=2022-07-03" | tee /dev/stderr 
+DEBUG 2022-08-02 15:51:52.414 UTC: 	 output : {"desc": {"columns": ["tm_taskname", "tm_task_status", "tw_name", "tm_user_dn"]}, "result": [
+ ["220717_012738:jodedra_crab_BuToKJpsi_Toee_Mufilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgenMC", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220715_100305:jodedra_crab_Bparkinghltpixeldoubletoneblockpub", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220717_172621:jodedra_crab_BuToKJpsi_Toee_Mufilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgenMC17july", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220716_175747:jodedra_crab_BuToKJpsi_Toee_Mufilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgenMC", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220716_202520:jodedra_crab_BuToKJpsi_Toee_Mufilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgenMC", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220715_092928:jodedra_crab_Bparkinghltpixeldoubletoneblock", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220717_182417:jodedra_crab_BuToKJpsi_Toee_Mufilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgenMC17july", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220715_092706:jodedra_crab_Bparkinghltpixeldoubletoneblock", "SUBMITFAILED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220715_093933:jodedra_crab_Bparkinghltpixeldoubletoneblockpub", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220720_083945:jodedra_crab_BuToKJpsi_Toee_Mufilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgenMC17july", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220725_145746:jodedra_crab_BuToKJpsi_Toee_Mufilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgenMC25july", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220728_155358:jodedra_crab_Run3BtoJPsiKee20220728", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220728_201037:jodedra_crab_Run3BtoJPsiKee20220728", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220728_225042:jodedra_crab_Run3BtoJPsiKee20220728_1", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220728_225126:jodedra_crab_Run3BtoJPsiKee20220728_2", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220728_225147:jodedra_crab_Run3BtoJPsiKee20220728_3", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220728_185705:jodedra_crab_Run3BtoJPsiKee20220728", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220729_004550:jodedra_crab_Run3BtoJPsiKee20220728_5", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220729_003145:jodedra_crab_Run3BtoJPsiKee20220728_4", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220728_210059:jodedra_crab_Run3BtoJPsiKee20220728a", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220802_132818:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAODBPeak", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220802_111917:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAODBPeak", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220802_124235:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAODBPeak", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220802_010439:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAOD", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220802_154847:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAODBPeak", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220802_141708:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAODBPeak", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220802_095903:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAOD", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220802_095627:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAOD", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+]}
+
+ error:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 188.184.75.82:8443...
+* Connected to cmsweb.cern.ch (188.184.75.82) port 8443 (#0)
+* ALPN, offering http/1.1
+* Cipher selection: ALL:!EXPORT:!EXPORT40:!EXPORT56:!aNULL:!LOW:!RC4:@STRENGTH
+* successfully set certificate verify locations:
+*  CAfile: /etc/pki/tls/certs/ca-bundle.crt
+*  CApath: /etc/grid-security/certificates/
+* TLSv1.2 (OUT), TLS header, Certificate Status (22):
+} [5 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Client hello (1):
+} [512 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server hello (2):
+{ [109 bytes data]
+* TLSv1.2 (IN), TLS handshake, Certificate (11):
+{ [6237 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server key exchange (12):
+{ [333 bytes data]
+* TLSv1.2 (IN), TLS handshake, Request CERT (13):
+{ [13340 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server finished (14):
+{ [4 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Certificate (11):
+} [6667 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Client key exchange (16):
+} [70 bytes data]
+* TLSv1.2 (OUT), TLS handshake, CERT verify (15):
+} [264 bytes data]
+* TLSv1.2 (OUT), TLS change cipher, Change cipher spec (1):
+} [1 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Finished (20):
+} [16 bytes data]
+* TLSv1.2 (IN), TLS change cipher, Change cipher spec (1):
+{ [1 bytes data]
+* TLSv1.2 (IN), TLS handshake, Finished (20):
+{ [16 bytes data]
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256
+* ALPN, server accepted to use http/1.1
+* Server certificate:
+*  subject: DC=ch; DC=cern; OU=computers; CN=cmsweb.cern.ch
+*  start date: Feb 17 13:05:12 2022 GMT
+*  expire date: Mar 24 13:05:12 2023 GMT
+*  subjectAltName: host "cmsweb.cern.ch" matched cert's "cmsweb.cern.ch"
+*  issuer: DC=ch; DC=cern; CN=CERN Grid Certification Authority
+*  SSL certificate verify ok.
+} [5 bytes data]
+> GET /crabserver/prod/workflow?timestamp=2022-07-03 HTTP/1.1
+> Host: cmsweb.cern.ch:8443
+> User-Agent: CRABClient/v3.220323
+> Accept: */*
+> Content-Length: 20
+> Content-Type: application/x-www-form-urlencoded
+> 
+} [20 bytes data]
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 OK
+< Date: Tue, 02 Aug 2022 15:51:52 GMT
+< Server: Apache
+< Content-Type: application/json
+< Content-Length: 5248
+< Vary: Accept
+< Cache-Control: max-age=3600
+< X-Rest-Status: 100
+< Etag: "94fd2f40a709a93d7ceb312b095a41d6a4af0901"
+< X-Rest-Time: 1016764.879 us
+< CMS-Server-Time: D=1024188 t=1659455511386732
+< 
+  0  5268    0     0  100    20      0     19  0:00:01  0:00:01 --:--:--    19{ [5 bytes data]
+{"desc": {"columns": ["tm_taskname", "tm_task_status", "tw_name", "tm_user_dn"]}, "result": [
+ ["220717_012738:jodedra_crab_BuToKJpsi_Toee_Mufilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgenMC", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220715_100305:jodedra_crab_Bparkinghltpixeldoubletoneblockpub", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220717_172621:jodedra_crab_BuToKJpsi_Toee_Mufilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgenMC17july", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220716_175747:jodedra_crab_BuToKJpsi_Toee_Mufilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgenMC", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220716_202520:jodedra_crab_BuToKJpsi_Toee_Mufilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgenMC", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220715_092928:jodedra_crab_Bparkinghltpixeldoubletoneblock", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220717_182417:jodedra_crab_BuToKJpsi_Toee_Mufilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgenMC17july", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220715_092706:jodedra_crab_Bparkinghltpixeldoubletoneblock", "SUBMITFAILED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220715_093933:jodedra_crab_Bparkinghltpixeldoubletoneblockpub", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220720_083945:jodedra_crab_BuToKJpsi_Toee_Mufilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgenMC17july", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220725_145746:jodedra_crab_BuToKJpsi_Toee_Mufilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgenMC25july", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220728_155358:jodedra_crab_Run3BtoJPsiKee20220728", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220728_201037:jodedra_crab_Run3BtoJPsiKee20220728", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220728_225042:jodedra_crab_Run3BtoJPsiKee20220728_1", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220728_225126:jodedra_crab_Run3BtoJPsiKee20220728_2", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220728_225147:jodedra_crab_Run3BtoJPsiKee20220728_3", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220728_185705:jodedra_crab_Run3BtoJPsiKee20220728", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220729_004550:jodedra_crab_Run3BtoJPsiKee20220728_5", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220729_003145:jodedra_crab_Run3BtoJPsiKee20220728_4", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220728_210059:jodedra_crab_Run3BtoJPsiKee20220728a", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220802_132818:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAODBPeak", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220802_111917:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAODBPeak", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jode100  5268  100  5248  100    20   4990     19  0:00:01  0:00:01 --:--:--  5012
+* Connection #0 to host cmsweb.cern.ch left intact
+dra/CN=857621/CN=Jay Odedra"]
+,["220802_124235:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAODBPeak", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220802_010439:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAOD", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220802_154847:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAODBPeak", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220802_141708:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAODBPeak", "KILLED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220802_095903:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAOD", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+,["220802_095627:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAOD", "SUBMITTED", "crab-prod-tw01", "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra"]
+]}
+
+ retcode : 0
+INFO 2022-08-02 15:51:52.415 UTC: 	 
+List of tasks from 2022-07-03 until 2022-08-02
+INFO 2022-08-02 15:51:52.415 UTC: 	 Beware that STATUS here does not include information from grid jobs
+INFO 2022-08-02 15:51:52.415 UTC: 	 ================================================================================
+INFO 2022-08-02 15:51:52.415 UTC: 	 NAME								STATUS
+INFO 2022-08-02 15:51:52.415 UTC: 	 ================================================================================
+INFO 2022-08-02 15:51:52.415 UTC: 	 220802_154847:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAODBPeak
+								SUBMITTED
+INFO 2022-08-02 15:51:52.415 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.415 UTC: 	 220802_141708:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAODBPeak
+								KILLED
+INFO 2022-08-02 15:51:52.415 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.415 UTC: 	 220802_132818:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAODBPeak
+								KILLED
+INFO 2022-08-02 15:51:52.415 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.415 UTC: 	 220802_124235:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAODBPeak
+								SUBMITTED
+INFO 2022-08-02 15:51:52.415 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.415 UTC: 	 220802_111917:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAODBPeak
+								SUBMITTED
+INFO 2022-08-02 15:51:52.415 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.415 UTC: 	 220802_095903:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAOD
+								SUBMITTED
+INFO 2022-08-02 15:51:52.415 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.415 UTC: 	 220802_095627:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAOD
+								SUBMITTED
+INFO 2022-08-02 15:51:52.415 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.415 UTC: 	 220802_010439:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAOD
+								KILLED
+INFO 2022-08-02 15:51:52.416 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.416 UTC: 	 220729_004550:jodedra_crab_Run3BtoJPsiKee20220728_5
+								SUBMITTED
+INFO 2022-08-02 15:51:52.416 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.416 UTC: 	 220729_003145:jodedra_crab_Run3BtoJPsiKee20220728_4
+								SUBMITTED
+INFO 2022-08-02 15:51:52.416 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.416 UTC: 	 220728_225147:jodedra_crab_Run3BtoJPsiKee20220728_3
+								SUBMITTED
+INFO 2022-08-02 15:51:52.416 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.416 UTC: 	 220728_225126:jodedra_crab_Run3BtoJPsiKee20220728_2
+								SUBMITTED
+INFO 2022-08-02 15:51:52.416 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.416 UTC: 	 220728_225042:jodedra_crab_Run3BtoJPsiKee20220728_1
+								SUBMITTED
+INFO 2022-08-02 15:51:52.416 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.416 UTC: 	 220728_210059:jodedra_crab_Run3BtoJPsiKee20220728a
+								KILLED
+INFO 2022-08-02 15:51:52.416 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.416 UTC: 	 220728_201037:jodedra_crab_Run3BtoJPsiKee20220728
+								SUBMITTED
+INFO 2022-08-02 15:51:52.416 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.416 UTC: 	 220728_185705:jodedra_crab_Run3BtoJPsiKee20220728
+								KILLED
+INFO 2022-08-02 15:51:52.416 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.416 UTC: 	 220728_155358:jodedra_crab_Run3BtoJPsiKee20220728
+								KILLED
+INFO 2022-08-02 15:51:52.416 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.416 UTC: 	 220725_145746:jodedra_crab_BuToKJpsi_Toee_Mufilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgenMC25july
+								KILLED
+INFO 2022-08-02 15:51:52.416 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.416 UTC: 	 220720_083945:jodedra_crab_BuToKJpsi_Toee_Mufilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgenMC17july
+								KILLED
+INFO 2022-08-02 15:51:52.416 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.416 UTC: 	 220717_182417:jodedra_crab_BuToKJpsi_Toee_Mufilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgenMC17july
+								KILLED
+INFO 2022-08-02 15:51:52.416 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.416 UTC: 	 220717_172621:jodedra_crab_BuToKJpsi_Toee_Mufilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgenMC17july
+								KILLED
+INFO 2022-08-02 15:51:52.416 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.416 UTC: 	 220717_012738:jodedra_crab_BuToKJpsi_Toee_Mufilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgenMC
+								KILLED
+INFO 2022-08-02 15:51:52.416 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.416 UTC: 	 220716_202520:jodedra_crab_BuToKJpsi_Toee_Mufilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgenMC
+								SUBMITTED
+INFO 2022-08-02 15:51:52.416 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.416 UTC: 	 220716_175747:jodedra_crab_BuToKJpsi_Toee_Mufilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgenMC
+								KILLED
+INFO 2022-08-02 15:51:52.416 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.416 UTC: 	 220715_100305:jodedra_crab_Bparkinghltpixeldoubletoneblockpub
+								SUBMITTED
+INFO 2022-08-02 15:51:52.416 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.416 UTC: 	 220715_093933:jodedra_crab_Bparkinghltpixeldoubletoneblockpub
+								KILLED
+INFO 2022-08-02 15:51:52.416 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.416 UTC: 	 220715_092928:jodedra_crab_Bparkinghltpixeldoubletoneblock
+								KILLED
+INFO 2022-08-02 15:51:52.416 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.416 UTC: 	 220715_092706:jodedra_crab_Bparkinghltpixeldoubletoneblock
+								SUBMITFAILED
+INFO 2022-08-02 15:51:52.416 UTC: 	 --------------------------------------------------------------------------------
+INFO 2022-08-02 15:51:52.416 UTC: 	 
+
+INFO 2022-08-02 15:51:52.426 UTC: 	 Log file is /eos/home-j/jodedra/yutadi-electron/CMSSW_12_4_3/src/EXOVVNtuplizerRunII/Ntuplizer/crab.log
+DEBUG 2022-08-02 15:53:10.500 UTC: 	 CRAB Client version: v3.220323
+DEBUG 2022-08-02 15:53:10.500 UTC: 	 Running on: Linux lxplus744.cern.ch 3.10.0-1160.66.1.el7.x86_64 #1 SMP Wed May 18 16:02:34 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2022-08-02 15:53:10.500 UTC: 	 Executing command: 'remake'
+DEBUG 2022-08-02 15:53:10.500 UTC: 	 Found CRAB cache file /afs/cern.ch/user/j/jodedra/.crab3
+DEBUG 2022-08-02 15:53:10.501 UTC: 	 Checking credentials
+DEBUG 2022-08-02 15:53:10.501 UTC: 	 Found proxy file /tmp/x509up_u147761
+DEBUG 2022-08-02 15:53:10.501 UTC: 	 Making sure it has proper VOMS extension
+DEBUG 2022-08-02 15:53:10.501 UTC: 	 Executing command :
+ voms-proxy-info --vo --file /tmp/x509up_u147761
+DEBUG 2022-08-02 15:53:11.169 UTC: 	 output : cms
+
+ error: 
+ retcode : 0
+DEBUG 2022-08-02 15:53:11.169 UTC: 	 Getting proxy life time left
+DEBUG 2022-08-02 15:53:11.169 UTC: 	 Executing command :
+ voms-proxy-info --actimeleft --timeleft --file /tmp/x509up_u147761
+DEBUG 2022-08-02 15:53:11.706 UTC: 	 output : 31954
+31954
+
+ error: 
+ retcode : 0
+DEBUG 2022-08-02 15:53:11.706 UTC: 	 Proxy valid for 08:52:34 hours
+DEBUG 2022-08-02 15:53:11.714 UTC: 	 Encoded data for curl request: subresource=delegatedn
+DEBUG 2022-08-02 15:53:11.714 UTC: 	 Executing command :
+ curl -v -X GET -H "User-Agent: CRABClient/v3.220323" -H "Accept: */*" --data @/tmp/crab_curlDataxwwazuwu --cert "/tmp/x509up_u147761" --key "/tmp/x509up_u147761" --capath "/etc/grid-security/certificates/" "https://cmsweb.cern.ch:8443/crabserver/prod/info?subresource=delegatedn" | tee /dev/stderr 
+DEBUG 2022-08-02 15:53:11.807 UTC: 	 output : {"result": [
+ {"services": ["/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod|dev)-tw(01|02|03).cern.ch|/DC=ch/DC=cern/OU=computers/CN=stefanov(m|m2).cern.ch|/DC=ch/DC=cern/OU=computers/CN=dciangot-tw.cern.ch"]}
+]}
+
+ error:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 188.184.75.82:8443...
+* Connected to cmsweb.cern.ch (188.184.75.82) port 8443 (#0)
+* ALPN, offering http/1.1
+* Cipher selection: ALL:!EXPORT:!EXPORT40:!EXPORT56:!aNULL:!LOW:!RC4:@STRENGTH
+* successfully set certificate verify locations:
+*  CAfile: /etc/pki/tls/certs/ca-bundle.crt
+*  CApath: /etc/grid-security/certificates/
+* TLSv1.2 (OUT), TLS header, Certificate Status (22):
+} [5 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Client hello (1):
+} [512 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server hello (2):
+{ [109 bytes data]
+* TLSv1.2 (IN), TLS handshake, Certificate (11):
+{ [6237 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server key exchange (12):
+{ [333 bytes data]
+* TLSv1.2 (IN), TLS handshake, Request CERT (13):
+{ [13340 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server finished (14):
+{ [4 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Certificate (11):
+} [6667 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Client key exchange (16):
+} [70 bytes data]
+* TLSv1.2 (OUT), TLS handshake, CERT verify (15):
+} [264 bytes data]
+* TLSv1.2 (OUT), TLS change cipher, Change cipher spec (1):
+} [1 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Finished (20):
+} [16 bytes data]
+* TLSv1.2 (IN), TLS change cipher, Change cipher spec (1):
+{ [1 bytes data]
+* TLSv1.2 (IN), TLS handshake, Finished (20):
+{ [16 bytes data]
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256
+* ALPN, server accepted to use http/1.1
+* Server certificate:
+*  subject: DC=ch; DC=cern; OU=computers; CN=cmsweb.cern.ch
+*  start date: Feb 17 13:05:12 2022 GMT
+*  expire date: Mar 24 13:05:12 2023 GMT
+*  subjectAltName: host "cmsweb.cern.ch" matched cert's "cmsweb.cern.ch"
+*  issuer: DC=ch; DC=cern; CN=CERN Grid Certification Authority
+*  SSL certificate verify ok.
+} [5 bytes data]
+> GET /crabserver/prod/info?subresource=delegatedn HTTP/1.1
+> Host: cmsweb.cern.ch:8443
+> User-Agent: CRABClient/v3.220323
+> Accept: */*
+> Content-Length: 22
+> Content-Type: application/x-www-form-urlencoded
+> 
+} [22 bytes data]
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 OK
+< Date: Tue, 02 Aug 2022 15:53:11 GMT
+< Server: Apache
+< Content-Type: application/json
+< Content-Length: 216
+< Vary: Accept
+< Cache-Control: max-age=3600
+< X-Rest-Status: 100
+< Etag: "531fb58a933656ea08a7f418b273fdae3c95932a"
+< X-Rest-Time: 1868.963 us
+< CMS-Server-Time: D=9112 t=1659455591795366
+< 
+{ [5 bytes data]
+100   238  100   216  100    22   8672    883 --:--:-- --:--:-- --:--:--  9916
+* Connection #0 to host cmsweb.cern.ch left intact
+{"result": [
+ {"services": ["/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod|dev)-tw(01|02|03).cern.ch|/DC=ch/DC=cern/OU=computers/CN=stefanov(m|m2).cern.ch|/DC=ch/DC=cern/OU=computers/CN=dciangot-tw.cern.ch"]}
+]}
+
+ retcode : 0
+DEBUG 2022-08-02 15:53:11.808 UTC: 	 Registering user credentials on myproxy for /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod|dev)-tw(01|02|03).cern.ch|/DC=ch/DC=cern/OU=computers/CN=stefanov(m|m2).cern.ch|/DC=ch/DC=cern/OU=computers/CN=dciangot-tw.cern.ch
+DEBUG 2022-08-02 15:53:11.808 UTC: 	 Executing command :
+ voms-proxy-info --identity --file /tmp/x509up_u147761
+DEBUG 2022-08-02 15:53:12.347 UTC: 	 output : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra
+
+ error: 
+ retcode : 0
+DEBUG 2022-08-02 15:53:12.347 UTC: 	 Getting myproxy life time left for 8b8ef16f353ac6386ac43a1dfe8c9a17c9742c0b
+DEBUG 2022-08-02 15:53:12.347 UTC: 	 Executing command :
+ myproxy-info -s myproxy.cern.ch -l 8b8ef16f353ac6386ac43a1dfe8c9a17c9742c0b
+DEBUG 2022-08-02 15:53:12.493 UTC: 	 output : username: 8b8ef16f353ac6386ac43a1dfe8c9a17c9742c0b
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=jodedra/CN=857621/CN=Jay Odedra
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod|dev)-tw(01|02|03).cern.ch|/DC=ch/DC=cern/OU=computers/CN=stefanov(m|m2).cern.ch|/DC=ch/DC=cern/OU=computers/CN=dciangot-tw.cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod|dev)-tw(01|02|03).cern.ch|/DC=ch/DC=cern/OU=computers/CN=stefanov(m|m2).cern.ch|/DC=ch/DC=cern/OU=computers/CN=dciangot-tw.cern.ch
+  timeleft: 710:50:49  (29.6 days)
+
+ error: 
+ retcode : 0
+DEBUG 2022-08-02 15:53:12.493 UTC: 	 Myproxy is valid: 2559000
+DEBUG 2022-08-02 15:53:12.493 UTC: 	 Result of myproxy credential check:
+  Credential exists on myproxy: username: 8b8ef16f353ac6386ac43a1dfe8c9a17c9742c0b  - validity: 29 days, 14:50:00
+DEBUG 2022-08-02 15:53:12.494 UTC: 	 Command use: remake
+DEBUG 2022-08-02 15:53:12.494 UTC: 	 Options use: ['--task=220802_154847:jodedra_crab__SingleMuon_Run2022C-PromptReco-v1_MINIAODBPeak']
+DEBUG 2022-08-02 15:53:12.494 UTC: 	 Encoded data for curl request: subresource=version
+DEBUG 2022-08-02 15:53:12.495 UTC: 	 Executing command :
+ curl -v -X GET -H "User-Agent: CRABClient/v3.220323" -H "Accept: */*" --data @/tmp/crab_curlDataf7r021gt --cert "/tmp/x509up_u147761" --key "/tmp/x509up_u147761" --capath "/etc/grid-security/certificates/" "https://cmsweb.cern.ch:8443/crabserver/prod/info?subresource=version" | tee /dev/stderr 
+DEBUG 2022-08-02 15:53:12.548 UTC: 	 output : {"result": [
+ ["3.3.19", "3.3.20", "v3", "development", "v3.220713"]
+]}
+
+ error:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 188.184.75.82:8443...
+* Connected to cmsweb.cern.ch (188.184.75.82) port 8443 (#0)
+* ALPN, offering http/1.1
+* Cipher selection: ALL:!EXPORT:!EXPORT40:!EXPORT56:!aNULL:!LOW:!RC4:@STRENGTH
+* successfully set certificate verify locations:
+*  CAfile: /etc/pki/tls/certs/ca-bundle.crt
+*  CApath: /etc/grid-security/certificates/
+* TLSv1.2 (OUT), TLS header, Certificate Status (22):
+} [5 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Client hello (1):
+} [512 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server hello (2):
+{ [109 bytes data]
+* TLSv1.2 (IN), TLS handshake, Certificate (11):
+{ [6237 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server key exchange (12):
+{ [333 bytes data]
+* TLSv1.2 (IN), TLS handshake, Request CERT (13):
+{ [13340 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server finished (14):
+{ [4 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Certificate (11):
+} [6667 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Client key exchange (16):
+} [70 bytes data]
+* TLSv1.2 (OUT), TLS handshake, CERT verify (15):
+} [264 bytes data]
+* TLSv1.2 (OUT), TLS change cipher, Change cipher spec (1):
+} [1 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Finished (20):
+} [16 bytes data]
+* TLSv1.2 (IN), TLS change cipher, Change cipher spec (1):
+{ [1 bytes data]
+* TLSv1.2 (IN), TLS handshake, Finished (20):
+{ [16 bytes data]
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256
+* ALPN, server accepted to use http/1.1
+* Server certificate:
+*  subject: DC=ch; DC=cern; OU=computers; CN=cmsweb.cern.ch
+*  start date: Feb 17 13:05:12 2022 GMT
+*  expire date: Mar 24 13:05:12 2023 GMT
+*  subjectAltName: host "cmsweb.cern.ch" matched cert's "cmsweb.cern.ch"
+*  issuer: DC=ch; DC=cern; CN=CERN Grid Certification Authority
+*  SSL certificate verify ok.
+} [5 bytes data]
+> GET /crabserver/prod/info?subresource=version HTTP/1.1
+> Host: cmsweb.cern.ch:8443
+> User-Agent: CRABClient/v3.220323
+> Accept: */*
+> Content-Length: 19
+> Content-Type: application/x-www-form-urlencoded
+> 
+} [19 bytes data]
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 OK
+< Date: Tue, 02 Aug 2022 15:53:12 GMT
+< Server: Apache
+< Content-Type: application/json
+< Content-Length: 72
+< Vary: Accept
+< Cache-Control: max-age=3600
+< X-Rest-Status: 100
+< Etag: "c0bae40b0e383f97f37604d2e156a33962099efe"
+< X-Rest-Time: 1937.628 us
+< CMS-Server-Time: D=8796 t=1659455592536179
+< 
+{ [5 bytes data]
+100    91  100    72  100    19   3135    827 --:--:-- --:--:-- --:--:--  4136
+* Connection #0 to host cmsweb.cern.ch left intact
+{"result": [
+ ["3.3.19", "3.3.20", "v3", "development", "v3.220713"]
+]}
+
+ retcode : 0
+DEBUG 2022-08-02 15:53:12.548 UTC: 	 CRABClient version: v3.220323
+DEBUG 2022-08-02 15:53:12.548 UTC: 	 Instance is prod
+DEBUG 2022-08-02 15:53:12.548 UTC: 	 Server base url is cmsweb.cern.ch
+DEBUG 2022-08-02 15:53:12.548 UTC: 	 Command api workflow
+INFO 2022-08-02 15:53:12.549 UTC: 	 Remaking crab__SingleMuon_Run2022C-PromptReco-v1_MINIAODBPeak folder.
+INFO 2022-08-02 15:53:12.556 UTC: 	 Remaking .requestcache file.
+INFO 2022-08-02 15:53:12.586 UTC: 	 Success: Finished remaking project directory crab__SingleMuon_Run2022C-PromptReco-v1_MINIAODBPeak
+INFO 2022-08-02 15:53:12.592 UTC: 	 Log file is /eos/home-j/jodedra/yutadi-electron/CMSSW_12_4_3/src/EXOVVNtuplizerRunII/Ntuplizer/crab.log
+DEBUG 2022-08-02 15:54:41.099 UTC: 	 CRAB Client version: v3.220323
+DEBUG 2022-08-02 15:54:41.099 UTC: 	 Running on: Linux lxplus744.cern.ch 3.10.0-1160.66.1.el7.x86_64 #1 SMP Wed May 18 16:02:34 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2022-08-02 15:54:41.099 UTC: 	 Executing command: 'status'
+DEBUG 2022-08-02 15:54:41.099 UTC: 	 Found CRAB cache file /afs/cern.ch/user/j/jodedra/.crab3
+ERROR 2022-08-02 15:54:41.100 UTC: 	 Cannot find .requestcache file in CRAB project directory /eos/home-j/jodedra/yutadi-electron/CMSSW_12_4_3/src/EXOVVNtuplizerRunII/Ntuplizer/crab_20220802/crab__ParkingDoubleElectronLowMass0_Run2022C-PromptReco-v1_MINIAODBPeak
+ERROR 2022-08-02 15:54:41.100 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/bin/crab.py", line 159, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/bin/crab.py", line 144, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/Commands/status.py", line 48, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/Commands/SubCommand.py", line 275, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/Commands/SubCommand.py", line 646, in validateOptions
+    self.loadLocalCache()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/Commands/SubCommand.py", line 508, in loadLocalCache
+    raise ex
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/Commands/SubCommand.py", line 502, in loadLocalCache
+    self.cachedinfo, self.logfile = loadCache(self.requestarea, self.logger)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/ClientUtilities.py", line 440, in loadCache
+    raise CachefileNotFoundException(msg)
+CRABClient.ClientExceptions.CachefileNotFoundException: Cannot find .requestcache file in CRAB project directory /eos/home-j/jodedra/yutadi-electron/CMSSW_12_4_3/src/EXOVVNtuplizerRunII/Ntuplizer/crab_20220802/crab__ParkingDoubleElectronLowMass0_Run2022C-PromptReco-v1_MINIAODBPeak
+INFO 2022-08-02 15:54:41.108 UTC: 	 Log file is /eos/home-j/jodedra/yutadi-electron/CMSSW_12_4_3/src/EXOVVNtuplizerRunII/Ntuplizer/crab.log
+DEBUG 2022-08-02 23:33:29.017 UTC: 	 CRAB Client version: v3.220323
+DEBUG 2022-08-02 23:33:29.018 UTC: 	 Running on: Linux lxplus7106.cern.ch 3.10.0-1160.66.1.el7.x86_64 #1 SMP Wed May 18 16:02:34 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2022-08-02 23:33:29.018 UTC: 	 Executing command: 'report'
+DEBUG 2022-08-02 23:33:29.018 UTC: 	 Found CRAB cache file /afs/cern.ch/user/j/jodedra/.crab3
+ERROR 2022-08-02 23:33:29.019 UTC: 	 Error: crab_20220802/crab__ParkingDoubleElectronLowMas43_Run2022C-PromptReco-v1_MINIAODBPeak/ is not a valid CRAB project directory.
+ERROR 2022-08-02 23:33:29.019 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/bin/crab.py", line 159, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/bin/crab.py", line 144, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/Commands/report.py", line 29, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/Commands/SubCommand.py", line 275, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/Commands/SubCommand.py", line 642, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: crab_20220802/crab__ParkingDoubleElectronLowMas43_Run2022C-PromptReco-v1_MINIAODBPeak/ is not a valid CRAB project directory.
+INFO 2022-08-02 23:33:29.022 UTC: 	 Log file is /eos/home-j/jodedra/yutadi-electron/CMSSW_12_4_3/src/EXOVVNtuplizerRunII/Ntuplizer/crab.log
+DEBUG 2022-08-02 23:33:35.386 UTC: 	 CRAB Client version: v3.220323
+DEBUG 2022-08-02 23:33:35.386 UTC: 	 Running on: Linux lxplus7106.cern.ch 3.10.0-1160.66.1.el7.x86_64 #1 SMP Wed May 18 16:02:34 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2022-08-02 23:33:35.386 UTC: 	 Executing command: 'report'
+DEBUG 2022-08-02 23:33:35.387 UTC: 	 Found CRAB cache file /afs/cern.ch/user/j/jodedra/.crab3
+ERROR 2022-08-02 23:33:35.388 UTC: 	 Error: crab_20220802/crab__ParkingDoubleElectronLowMas4_Run2022C-PromptReco-v1_MINIAODBPeak/ is not a valid CRAB project directory.
+ERROR 2022-08-02 23:33:35.388 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/bin/crab.py", line 159, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/bin/crab.py", line 144, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/Commands/report.py", line 29, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/Commands/SubCommand.py", line 275, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/Commands/SubCommand.py", line 642, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: crab_20220802/crab__ParkingDoubleElectronLowMas4_Run2022C-PromptReco-v1_MINIAODBPeak/ is not a valid CRAB project directory.
+INFO 2022-08-02 23:33:35.392 UTC: 	 Log file is /eos/home-j/jodedra/yutadi-electron/CMSSW_12_4_3/src/EXOVVNtuplizerRunII/Ntuplizer/crab.log
+DEBUG 2022-08-03 17:31:09.705 UTC: 	 CRAB Client version: v3.220323
+DEBUG 2022-08-03 17:31:09.706 UTC: 	 Running on: Linux lxplus785.cern.ch 3.10.0-1160.71.1.el7.x86_64 #1 SMP Tue Jun 28 15:37:28 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2022-08-03 17:31:09.706 UTC: 	 Executing command: 'report'
+DEBUG 2022-08-03 17:31:09.706 UTC: 	 Found CRAB cache file /afs/cern.ch/user/j/jodedra/.crab3
+ERROR 2022-08-03 17:31:09.707 UTC: 	 Error: crab_20220802/ParkingSingleMu/crab__ParkingSingleMuon1_Run2022C-PromptReco-v1_MINIAODBPeak/_Run2022C-PromptReco-v1_MINIAODBPeak/ is not a valid CRAB project directory.
+ERROR 2022-08-03 17:31:09.707 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/bin/crab.py", line 159, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/bin/crab.py", line 144, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/Commands/report.py", line 29, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/Commands/SubCommand.py", line 275, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.220323.01/lib/CRABClient/Commands/SubCommand.py", line 642, in validateOptions
+    raise ConfigurationException(msg)
+CRABClient.ClientExceptions.ConfigurationException: [91mError[0m: crab_20220802/ParkingSingleMu/crab__ParkingSingleMuon1_Run2022C-PromptReco-v1_MINIAODBPeak/_Run2022C-PromptReco-v1_MINIAODBPeak/ is not a valid CRAB project directory.
+INFO 2022-08-03 17:31:09.715 UTC: 	 Log file is /eos/home-j/jodedra/yutadi-electron/CMSSW_12_4_3/src/EXOVVNtuplizerRunII/Ntuplizer/crab.log

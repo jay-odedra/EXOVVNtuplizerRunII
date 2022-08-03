@@ -2,10 +2,11 @@ from CRABClient.UserUtilities import config #, getUsernameFromSiteDB
 config = config()
 
 config.General.requestName = ''
-config.General.transferLogs = False
+config.General.transferLogs = True
+config.General.transferOutputs = True
 
 config.JobType.pluginName = 'Analysis'
-config.JobType.psetName = 'nanoanalyzercrab_cfg_22_ZeroBias.py'
+config.JobType.psetName = 'nanoanalyzercrab_cfg_22_SingleMu.py'
 config.JobType.maxMemoryMB = 4000
 config.JobType.numCores = 1
 
@@ -14,27 +15,30 @@ config.Data.inputDataset = ''
 config.Data.inputDBS = 'global'
 config.Data.splitting = 'FileBased'
 config.Data.unitsPerJob = 2
-#config.Data.totalUnits=10
+#config.Data.totalUnits = 400
 
-config.Data.outLFNDirBase = '/store/user/ytakahas/Run3/' #% (getUsernameFromSiteDB())
-config.Data.publication = False
+#config.Data.outLFNDirBase = '/store/user/jodedra/Run3/' #% (getUsernameFromSiteDB())
+#config.Data.publication = True
 #config.Data.outputDatasetTag = 'winter21'
-config.Site.storageSite = 'T3_CH_PSI'
+config.Site.storageSite = 'T3_CH_CERNBOX'
 #config.Site.ignoreGlobalBlacklist = True
-config.Data.ignoreLocality = True
-config.Site.whitelist = ['T2_CH_*']
+#config.Data.ignoreLocality = True
+#config.Site.whitelist = ['T2_CH_*']
 #config.Site.blacklist = ['T2_US_Purdue']
 
 
-config.General.workArea = 'crab_20220727'
+config.General.workArea = 'crab_20220802/ParkingSingleMu'
 
 #name = 'EphemeralZeroBias8'
 #name = 'ZeroBias10'
 
-name='/HLTPhysics/Run2022C-PromptReco-v1/MINIAOD'
-
+name='/ParkingSingleMuon2/Run2022C-PromptReco-v1/MINIAODBPeak'
+config.Data.outLFNDirBase = '/store/user/jodedra/Run3/ParkingSingleMuon/'
+config.Data.publication = True
 config.General.requestName = name.replace('/','_')
-config.Data.inputDataset = '/HLTPhysics/Run2022C-PromptReco-v1/MINIAOD'
+config.Data.inputDataset = '/ParkingSingleMuon2/Run2022C-PromptReco-v1/MINIAOD'
+config.Data.outputDatasetTag = 'SUMMER22'
+
 
 #config.Data.inputDataset = '/' + name + '/ytakahas-winter21-30e4efebaefe52740b9ca928c2409cd7/USER'
 

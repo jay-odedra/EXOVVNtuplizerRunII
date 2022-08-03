@@ -27,6 +27,8 @@ process.load('Configuration.StandardSequences.EndOfProcess_cff')
 # Comment Varparsing if you want to submit job using CRAB
 # because CRAB does not support input directory as we put input dataset directly
 #options = VarParsing('analysis')
+
+
 #options.register(
 #    "inputDir",
 #    "",
@@ -114,15 +116,18 @@ process.load("JetMETCorrections.Configuration.JetCorrectionServicesAllAlgos_cff"
 
 # To submit batch job using CRAB or test locally (2nd option), use this:
 
+#files = FileUtils.loadListFromFile("/eos/user/j/jodedra/BPARKINGNANOSTUFF/CMSSW_12_4_0_pre3/src/PhysicsTools/BParkingNano/test/singlefileboffifical.txt")
+#files.extend(FileUtils.loadListFromFile("/eos/user/j/jodedra/BPARKINGNANOSTUFF/CMSSW_12_4_0_pre3/src/PhysicsTools/BParkingNano/test/singlefileboffifical.txt"))
+
 
 inputFiles= [
-
-    '/store/data/Run2022C/ParkingDoubleElectronLowMass1/MINIAOD/PromptReco-v1/000/356/170/00000/07cf47be-67de-4b52-8956-261221ac18a9.root',
-    '/store/data/Run2022C/ParkingDoubleElectronLowMass2/MINIAOD/PromptReco-v1/000/356/170/00000/57130a2d-1e3e-4013-9236-e38cdfd81181.root',
-    '/store/data/Run2022C/ParkingDoubleElectronLowMass3/MINIAOD/PromptReco-v1/000/356/170/00000/2f693ac8-1454-4889-954c-9a77e07c82a8.root',
-    '/store/data/Run2022C/ParkingDoubleElectronLowMass4/MINIAOD/PromptReco-v1/000/356/170/00000/8e4588b3-e391-4e2b-8507-a72dad99a244.root',
-    '/store/data/Run2022C/ParkingDoubleElectronLowMass5/MINIAOD/PromptReco-v1/000/356/170/00000/e247937b-47c5-4088-b39d-e0e631882072.root',
-    '/store/data/Run2022C/ParkingDoubleElectronLowMass0/MINIAOD/PromptReco-v1/000/356/170/00000/45c0f2ed-eb5b-4292-abc8-3117424d9432.root'
+    '/store/data/Run2022C/ParkingDoubleElectronLowMass1/MINIAOD/PromptReco-v1/000/356/381/00000/d0ea2b7f-5b63-4ebb-aec8-95d4adc464e6.root',
+#    '/store/data/Run2022C/ParkingDoubleElectronLowMass1/MINIAOD/PromptReco-v1/000/356/170/00000/07cf47be-67de-4b52-8956-261221ac18a9.root',
+#    '/store/data/Run2022C/ParkingDoubleElectronLowMass2/MINIAOD/PromptReco-v1/000/356/170/00000/57130a2d-1e3e-4013-9236-e38cdfd81181.root',
+#    '/store/data/Run2022C/ParkingDoubleElectronLowMass3/MINIAOD/PromptReco-v1/000/356/170/00000/2f693ac8-1454-4889-954c-9a77e07c82a8.root',
+#    '/store/data/Run2022C/ParkingDoubleElectronLowMass4/MINIAOD/PromptReco-v1/000/356/170/00000/8e4588b3-e391-4e2b-8507-a72dad99a244.root',
+#    '/store/data/Run2022C/ParkingDoubleElectronLowMass5/MINIAOD/PromptReco-v1/000/356/170/00000/e247937b-47c5-4088-b39d-e0e631882072.root',
+#    '/store/data/Run2022C/ParkingDoubleElectronLowMass0/MINIAOD/PromptReco-v1/000/356/170/00000/45c0f2ed-eb5b-4292-abc8-3117424d9432.root'
 #    '/store/data/Run2022C/HLTPhysics/MINIAOD/PromptReco-v1/000/355/872/00000/725217a6-902f-48e4-84ff-ec18ec794c66.root',
 #    '/store/data/Run2022C/HLTPhysics/MINIAOD/PromptReco-v1/000/355/872/00000/97c45763-b1e9-490d-8f99-f5133b889fa6.root',
 #    '/store/data/Run2022C/HLTPhysics/MINIAOD/PromptReco-v1/000/355/872/00000/cc0ee657-ec41-4470-a3c6-40d386088c1e.root'
@@ -133,9 +138,10 @@ inputFiles= [
 
 process.source = cms.Source("PoolSource",
 # for crab
-                            fileNames = cms.untracked.vstring(inputFiles)
+	  fileNames = cms.untracked.vstring (inputFiles),
+                            #fileNames = cms.untracked.vstring(*files)
 )
-
+#print(options.inputFiles)
 
 ##################################################################################
 
@@ -145,7 +151,7 @@ process.source = cms.Source("PoolSource",
 #process.source.lumisToProcess.extend(myLumis)
 
 process.TFileService = cms.Service("TFileService",
-                                    fileName = cms.string('test.root')
+                                    fileName = cms.string ('DoubleEleLowMass.root')
                                    )
 
 

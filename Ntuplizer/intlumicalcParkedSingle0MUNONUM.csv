@@ -1,0 +1,8 @@
+#Data tag : 19v3 , Norm tag: None
+#run:fill,time,nls,ncms,delivered(/fb),recorded(/fb)
+356488:8073,07/31/22 00:47:57,196,196,0.029457844,0.028230006
+#Summary:
+#nfill,nrun,nls,ncms,totdelivered(/fb),totrecorded(/fb)
+#1,1,196,196,0.029457844,0.028230006
+#Check JSON:
+#(run,ls) in json but not in results: []

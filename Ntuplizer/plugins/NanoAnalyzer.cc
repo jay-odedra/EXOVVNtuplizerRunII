@@ -113,6 +113,7 @@
 #include <stdexcept>
 #include <cmath>
 #include <string>
+#include "algorithm"
 
 #include "../interface/helperfunc.h"
 #include "../interface/MyStruct.h"
@@ -449,6 +450,7 @@ private:
   float                JpsiKE_Jpsi_vx      ;
   float                JpsiKE_Jpsi_vy      ;
   float                JpsiKE_Jpsi_vz      ;
+  float                JpsiKE_B_Mass_highestpt;
 
   std::vector<float>                JpsiKE_B_pt      ;
   std::vector<float>                JpsiKE_B_eta     ;
@@ -604,7 +606,7 @@ NanoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	isTriggered = true;
 	finalTriggerName=trigNames.triggerName(i);  
 	
-	std::cout << "!!!!!!! This is fired: " << finalTriggerName << std::endl;
+	//std::cout << "!!!!!!! This is fired: " << finalTriggerName << std::endl;
 	//	finalTriggerFilterObjName="hltJpsiTkVertexFilter";
       }
     }
@@ -639,24 +641,24 @@ NanoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 
     /// Trigger matching 
 
+    /*
+    bool trigMatch = false;
 
-////    bool trigMatch = false;
+    for (pat::TriggerObjectStandAlone obj : *triggerObjects) {
+    
+      obj.unpackPathNames(trigNames);
+      obj.unpackFilterLabels(iEvent, *HLTtriggers_);
+
+      std::vector<std::string> pathNamesAll  = obj.pathNames(false);
 ////
-////    for (pat::TriggerObjectStandAlone obj : *triggerObjects) {
-////    
-////      obj.unpackPathNames(trigNames);
-////      obj.unpackFilterLabels(iEvent, *HLTtriggers_);
+      bool isPathExist = false;
 ////
-////      std::vector<std::string> pathNamesAll  = obj.pathNames(false);
-////
-////      bool isPathExist = false;
-////
-////      for (unsigned h = 0, n = pathNamesAll.size(); h < n; ++h) {
-////	if(pathNamesAll[h]==finalTriggerName) isPathExist = true;
-////      }
+      for (unsigned h = 0, n = pathNamesAll.size(); h < n; ++h) {
+      	if(pathNamesAll[h]==finalTriggerName) isPathExist = true;
+      }
 ////
 ////      //      std::cout << "isPathExist!" << std::endl;
-////      if(!isPathExist) continue;
+      if(!isPathExist) continue;
 ////      //      std::cout << "isPathExist passed!" << std::endl;
 ////
 /////////      bool isFilterExist = false;
@@ -674,21 +676,17 @@ NanoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 ////      
 ////      //      if(TMath::Abs(obj.pdgId()) != 13) continue;
 ////      
-////      Float_t trigger_dR = reco::deltaR(obj.eta(), obj.phi(),
-////					electron.eta(), electron.phi());
+      Float_t trigger_dR = reco::deltaR(obj.eta(), obj.phi(),	electron.eta(), electron.phi());
 ////      
-////      if(trigger_dR < 0.015 &&
-////	 obj.pt()/electron.pt() > 0.85 &&
-////	 obj.pt()/electron.pt() < 1.15
-////	 ){
-////	trigMatch = true;
+      if(trigger_dR < 0.05){
+        trigMatch = true;
 ////	//	std::cout << "Muon" << imuon << " matches to the trigger object dR = " << trigger_dR << ", obj pT = " << obj.pt() << ", muon pT = " << muon.pt() << " " << obj.pdgId() << std::endl;
-////      }
-////    }
+      }
+    }
 ////
-////    if(!trigMatch) continue;
+    if(!trigMatch) continue;
 
-
+    */
 
 
 
@@ -771,6 +769,7 @@ NanoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
   RefCountedKinematicParticle jpsi_part;
   RefCountedKinematicVertex jpsi_vertex;
   RefCountedKinematicTree jpTree;
+  
   Bool_t jpsifit_flag;
 
   std::tie(jpsifit_flag, jpsi_part, jpsi_vertex, jpTree) = aux.KinematicFit(electronParticles, -1, -1);
@@ -915,7 +914,7 @@ NanoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
     Bool_t bfit_flag;
     std::tie(bfit_flag, b_part, b_vertex, bTree) = aux.KinematicFit(allParticles, -1, -1);
     if(!bfit_flag){
-      std::cout <<"The Fit fails ..." << std::endl;
+      //std::cout <<"The Fit fails ..." << std::endl;
       continue;
     }
 
@@ -971,8 +970,10 @@ NanoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 
 
   }
+  int maxjpsielement = std::max_element(JpsiKE_B_pt.begin(), JpsiKE_B_pt.end()) - JpsiKE_B_pt.begin() ;
 
-  
+
+  JpsiKE_B_Mass_highestpt = JpsiKE_B_mass[maxjpsielement];
   JpsiKE_e1_pt = electroncollection[mcidx_e1].pt();
   JpsiKE_e1_eta = electroncollection[mcidx_e1].eta();
   JpsiKE_e1_phi = electroncollection[mcidx_e1].phi();
@@ -1142,7 +1143,7 @@ void NanoAnalyzer::createBranch() {
   tree_->Branch("JpsiKE_Jpsi_vx", &JpsiKE_Jpsi_vx );
   tree_->Branch("JpsiKE_Jpsi_vy", &JpsiKE_Jpsi_vy );
   tree_->Branch("JpsiKE_Jpsi_vz", &JpsiKE_Jpsi_vz );
-
+  tree_->Branch("JpsiKE_B_Mass_highestpt", &JpsiKE_B_Mass_highestpt);
 
   tree_->Branch("JpsiKE_B_pt", &JpsiKE_B_pt );
   tree_->Branch("JpsiKE_B_eta", &JpsiKE_B_eta );
@@ -1210,7 +1211,7 @@ void NanoAnalyzer::createBranch() {
 
 void NanoAnalyzer::reset(void){
 
-  std::cout << "RESET" << std::endl;
+  //std::cout << "RESET" << std::endl;
 
   run = -1;
   event = -1;
@@ -1306,7 +1307,7 @@ void NanoAnalyzer::reset(void){
 
   JpsiKE_nch = -99;
   JpsiKE_nch_filter = -99;
-  std::cout << "RESET end" << std::endl;
+  //std::cout << "RESET end" << std::endl;
 
 }
 

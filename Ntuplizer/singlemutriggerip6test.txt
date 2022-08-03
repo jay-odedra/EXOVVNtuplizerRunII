@@ -1,0 +1,131 @@
+03-Aug-2022 15:59:06 CEST  Initiating request to open file root://eoscms.cern.ch//eos/cms/store/data/Run2022C/ParkingSingleMuon0/MINIAOD/PromptReco-v1/000/356/488/00000/c0d07d9d-fa5c-4de2-bf95-5415d485ae0f.root
+%MSG-w XrdAdaptorInternal:  file_open 03-Aug-2022 15:59:07 CEST pre-events
+Failed to open file at URL root://eoscms.cern.ch:1094//eos/cms/store/data/Run2022C/ParkingSingleMuon0/MINIAOD/PromptReco-v1/000/356/488/00000/c0d07d9d-fa5c-4de2-bf95-5415d485ae0f.root?xrdcl.requuid=94ea9102-798d-447c-957d-152faa75a4a6.
+%MSG
+%MSG-w XrdAdaptorInternal:  file_open 03-Aug-2022 15:59:07 CEST pre-events
+Failed to open file at URL root://eoscms.cern.ch:1094//eos/cms/store/data/Run2022C/ParkingSingleMuon0/MINIAOD/PromptReco-v1/000/356/488/00000/c0d07d9d-fa5c-4de2-bf95-5415d485ae0f.root?tried=&xrdcl.requuid=62716053-ef05-4fd2-bf99-09939b781a1a.
+%MSG
+03-Aug-2022 15:59:07 CEST  Initiating request to open file root://xrootd-cms.infn.it//store/data/Run2022C/ParkingSingleMuon0/MINIAOD/PromptReco-v1/000/356/488/00000/c0d07d9d-fa5c-4de2-bf95-5415d485ae0f.root
+%MSG-w XrdAdaptor:  file_open 03-Aug-2022 15:59:09 CEST pre-events
+Data is served from T0_CH_CERN_Disk instead of original site infn.it
+%MSG
+
+
+A fatal system signal has occurred: external termination request
+The following is the call stack containing the origin of the signal.
+
+Wed Aug  3 15:59:18 CEST 2022
+Thread 7 (Thread 0x7fe2da0f5700 (LWP 13882) "cmsRun"):
+#0  0x00007fe30da80b3b in do_futex_wait.constprop () from /lib64/libpthread.so.0
+#1  0x00007fe30da80bcf in __new_sem_wait_slow.constprop.0 () from /lib64/libpthread.so.0
+#2  0x00007fe30da80c6b in sem_wait@@GLIBC_2.2.5 () from /lib64/libpthread.so.0
+#3  0x00007fe307944636 in XrdCl::JobManager::RunJobs() () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libXrdCl.so.3
+#4  0x00007fe3079446f9 in RunRunnerThread () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libXrdCl.so.3
+#5  0x00007fe30da7aea5 in start_thread () from /lib64/libpthread.so.0
+#6  0x00007fe30d7a3b0d in clone () from /lib64/libc.so.6
+Thread 6 (Thread 0x7fe2da8f6700 (LWP 13881) "cmsRun"):
+#0  0x00007fe30da80b3b in do_futex_wait.constprop () from /lib64/libpthread.so.0
+#1  0x00007fe30da80bcf in __new_sem_wait_slow.constprop.0 () from /lib64/libpthread.so.0
+#2  0x00007fe30da80c6b in sem_wait@@GLIBC_2.2.5 () from /lib64/libpthread.so.0
+#3  0x00007fe307944636 in XrdCl::JobManager::RunJobs() () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libXrdCl.so.3
+#4  0x00007fe3079446f9 in RunRunnerThread () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libXrdCl.so.3
+#5  0x00007fe30da7aea5 in start_thread () from /lib64/libpthread.so.0
+#6  0x00007fe30d7a3b0d in clone () from /lib64/libc.so.6
+Thread 5 (Thread 0x7fe2db0f7700 (LWP 13880) "cmsRun"):
+#0  0x00007fe30da80b3b in do_futex_wait.constprop () from /lib64/libpthread.so.0
+#1  0x00007fe30da80bcf in __new_sem_wait_slow.constprop.0 () from /lib64/libpthread.so.0
+#2  0x00007fe30da80c6b in sem_wait@@GLIBC_2.2.5 () from /lib64/libpthread.so.0
+#3  0x00007fe307944636 in XrdCl::JobManager::RunJobs() () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libXrdCl.so.3
+#4  0x00007fe3079446f9 in RunRunnerThread () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libXrdCl.so.3
+#5  0x00007fe30da7aea5 in start_thread () from /lib64/libpthread.so.0
+#6  0x00007fe30d7a3b0d in clone () from /lib64/libc.so.6
+Thread 4 (Thread 0x7fe2db8f8700 (LWP 13879) "cmsRun"):
+#0  0x00007fe30da81e9d in nanosleep () from /lib64/libpthread.so.0
+#1  0x00007fe307a3108f in XrdSysTimer::Wait(int) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libXrdUtils.so.3
+#2  0x00007fe3078b3fc3 in XrdCl::TaskManager::RunTasks() () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libXrdCl.so.3
+#3  0x00007fe3078b4119 in RunRunnerThread () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libXrdCl.so.3
+#4  0x00007fe30da7aea5 in start_thread () from /lib64/libpthread.so.0
+#5  0x00007fe30d7a3b0d in clone () from /lib64/libc.so.6
+Thread 3 (Thread 0x7fe2dc0f9700 (LWP 13878) "cmsRun"):
+#0  0x00007fe30d7a40e3 in epoll_wait () from /lib64/libc.so.6
+#1  0x00007fe307a2b4b2 in XrdSys::IOEvents::PollE::Begin(XrdSysSemaphore*, int&, char const**) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libXrdUtils.so.3
+#2  0x00007fe307a27c3d in XrdSys::IOEvents::BootStrap::Start(void*) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libXrdUtils.so.3
+#3  0x00007fe307a30798 in XrdSysThread_Xeq () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libXrdUtils.so.3
+#4  0x00007fe30da7aea5 in start_thread () from /lib64/libpthread.so.0
+#5  0x00007fe30d7a3b0d in clone () from /lib64/libc.so.6
+Thread 2 (Thread 0x7fe2e91a3700 (LWP 13633) "cmsRun"):
+#0  0x00007fe30da821d9 in waitpid () from /lib64/libpthread.so.0
+#1  0x00007fe3070fd487 in edm::service::cmssw_stacktrace_fork() () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/lib/slc7_amd64_gcc10/pluginFWCoreServicesPlugins.so
+#2  0x00007fe3070fdffa in edm::service::InitRootHandlers::stacktraceHelperThread() () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/lib/slc7_amd64_gcc10/pluginFWCoreServicesPlugins.so
+#3  0x00007fe30e07af90 in std::execute_native_thread_routine (__p=0x7fe3085c1060) at ../../../../../libstdc++-v3/src/c++11/thread.cc:80
+#4  0x00007fe30da7aea5 in start_thread () from /lib64/libpthread.so.0
+#5  0x00007fe30d7a3b0d in clone () from /lib64/libc.so.6
+Thread 1 (Thread 0x7fe30b8f5740 (LWP 13465) "cmsRun"):
+#0  0x00007fe30d798ddd in poll () from /lib64/libc.so.6
+#1  0x00007fe3070fd73f in full_read.constprop () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/lib/slc7_amd64_gcc10/pluginFWCoreServicesPlugins.so
+#2  0x00007fe3070fe0cc in edm::service::InitRootHandlers::stacktraceFromThread() () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/lib/slc7_amd64_gcc10/pluginFWCoreServicesPlugins.so
+#3  0x00007fe307100a1b in sig_dostack_then_abort () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/lib/slc7_amd64_gcc10/pluginFWCoreServicesPlugins.so
+#4  <signal handler called>
+#5  0x00007fe30346b173 in llvm::FoldingSet<clang::TemplateTypeParmType>::NodeEquals(llvm::FoldingSetBase::Node*, llvm::FoldingSetNodeID const&, unsigned int, llvm::FoldingSetNodeID&) const () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#6  0x00007fe303b4c57d in llvm::FoldingSetBase::FindNodeOrInsertPos(llvm::FoldingSetNodeID const&, void*&) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#7  0x00007fe303486658 in clang::ASTContext::getTemplateTypeParmType(unsigned int, unsigned int, bool, clang::TemplateTypeParmDecl*) const () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#8  0x00007fe3035b981f in clang::TemplateTypeParmDecl::Create(clang::ASTContext const&, clang::DeclContext*, clang::SourceLocation, clang::SourceLocation, unsigned int, unsigned int, clang::IdentifierInfo*, bool, bool) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#9  0x00007fe301fc2aff in clang::TemplateDeclInstantiator::VisitTemplateTypeParmDecl(clang::TemplateTypeParmDecl*) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#10 0x00007fe301fd6deb in clang::TemplateDeclInstantiator::SubstTemplateParams(clang::TemplateParameterList*) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#11 0x00007fe301fd8916 in clang::TemplateDeclInstantiator::VisitFunctionTemplateDecl(clang::FunctionTemplateDecl*) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#12 0x00007fe301fac33a in clang::Sema::InstantiateClass(clang::SourceLocation, clang::CXXRecordDecl*, clang::CXXRecordDecl*, clang::MultiLevelTemplateArgumentList const&, clang::TemplateSpecializationKind, bool) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#13 0x00007fe301fbf202 in clang::Sema::InstantiateClassTemplateSpecialization(clang::SourceLocation, clang::ClassTemplateSpecializationDecl*, clang::TemplateSpecializationKind, bool) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#14 0x00007fe3020014bb in clang::Sema::RequireCompleteTypeImpl(clang::SourceLocation, clang::QualType, clang::Sema::TypeDiagnoser*) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#15 0x00007fe302002717 in clang::Sema::RequireCompleteType(clang::SourceLocation, clang::QualType, unsigned int) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#16 0x00007fe301cd78be in clang::Sema::ActOnStartCXXMemberReference(clang::Scope*, clang::Expr*, clang::SourceLocation, clang::tok::TokenKind, clang::OpaquePtr<clang::QualType>&, bool&) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#17 0x00007fe3017ecb78 in clang::Parser::ParsePostfixExpressionSuffix(clang::ActionResult<clang::Expr*, true>) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#18 0x00007fe3017e68c4 in clang::Parser::ParseCastExpression(bool, bool, bool&, clang::Parser::TypeCastState, bool) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#19 0x00007fe3017e8fb5 in clang::Parser::ParseCastExpression(bool, bool, clang::Parser::TypeCastState, bool) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#20 0x00007fe3017e6846 in clang::Parser::ParseCastExpression(bool, bool, bool&, clang::Parser::TypeCastState, bool) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#21 0x00007fe3017e912d in clang::Parser::ParseRHSOfBinaryExpression(clang::ActionResult<clang::Expr*, true>, clang::prec::Level) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#22 0x00007fe3017ebd69 in clang::Parser::ParseExpression(clang::Parser::TypeCastState) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#23 0x00007fe30183168b in clang::Parser::ParseReturnStatement() () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#24 0x00007fe3018353d1 in clang::Parser::ParseStatementOrDeclarationAfterAttributes(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*, clang::Parser::ParsedAttributesWithRange&) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#25 0x00007fe301835fad in clang::Parser::ParseStatementOrDeclaration(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#26 0x00007fe301836921 in clang::Parser::ParseCompoundStatementBody(bool) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#27 0x00007fe30183731a in clang::Parser::ParseFunctionStatementBody(clang::Decl*, clang::Parser::ParseScope&) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#28 0x00007fe30185d2b7 in clang::Parser::ParseLexedMethodDef(clang::Parser::LexedMethod&) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#29 0x00007fe30185d08a in clang::Parser::ParseLexedMethodDefs(clang::Parser::ParsingClass&) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#30 0x00007fe3017de9d0 in clang::Parser::ParseCXXMemberSpecification(clang::SourceLocation, clang::SourceLocation, clang::Parser::ParsedAttributesWithRange&, unsigned int, clang::Decl*) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#31 0x00007fe3017e23b5 in clang::Parser::ParseClassSpecifier(clang::tok::TokenKind, clang::SourceLocation, clang::DeclSpec&, clang::Parser::ParsedTemplateInfo const&, clang::AccessSpecifier, bool, clang::Parser::DeclSpecContext, clang::Parser::ParsedAttributesWithRange&) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#32 0x00007fe3017bd597 in clang::Parser::ParseDeclarationSpecifiers(clang::DeclSpec&, clang::Parser::ParsedTemplateInfo const&, clang::AccessSpecifier, clang::Parser::DeclSpecContext, clang::Parser::LateParsedAttrList*) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#33 0x00007fe3018538ef in clang::Parser::ParseDeclOrFunctionDefInternal(clang::Parser::ParsedAttributesWithRange&, clang::ParsingDeclSpec&, clang::AccessSpecifier) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#34 0x00007fe301854075 in clang::Parser::ParseDeclarationOrFunctionDefinition(clang::Parser::ParsedAttributesWithRange&, clang::ParsingDeclSpec*, clang::AccessSpecifier) [clone .part.0] () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#35 0x00007fe30185bfe1 in clang::Parser::ParseExternalDeclaration(clang::Parser::ParsedAttributesWithRange&, clang::ParsingDeclSpec*) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#36 0x00007fe3017d8b8c in clang::Parser::ParseInnerNamespace(llvm::SmallVector<clang::Parser::InnerNamespaceInfo, 4u> const&, unsigned int, clang::SourceLocation&, clang::ParsedAttributes&, clang::BalancedDelimiterTracker&) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#37 0x00007fe3017e0311 in clang::Parser::ParseNamespace(clang::DeclaratorContext, clang::SourceLocation&, clang::SourceLocation) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#38 0x00007fe3017c9a97 in clang::Parser::ParseDeclaration(clang::DeclaratorContext, clang::SourceLocation&, clang::Parser::ParsedAttributesWithRange&) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#39 0x00007fe30185b81f in clang::Parser::ParseExternalDeclaration(clang::Parser::ParsedAttributesWithRange&, clang::ParsingDeclSpec*) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#40 0x00007fe30185c343 in clang::Parser::ParseTopLevelDecl(clang::OpaquePtr<clang::DeclGroupRef>&, bool) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#41 0x00007fe301143030 in cling::IncrementalParser::ParseInternal(llvm::StringRef) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#42 0x00007fe301143fbd in cling::IncrementalParser::Compile(llvm::StringRef, cling::CompilationOptions const&) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#43 0x00007fe3010bb4cb in cling::Interpreter::parseForModule(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#44 0x00007fe300ffbcc6 in ExecAutoParse(char const*, bool, cling::Interpreter*) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#45 0x00007fe301009ec7 in TCling::AutoParseImplRecurse(char const*, bool) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#46 0x00007fe30100ed55 in TCling::AutoParse(char const*) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#47 0x00007fe300feac8a in TClingLookupHelper__AutoParse(char const*) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#48 0x00007fe300f51d37 in ROOT::TMetaUtils::TClingLookupHelper::GetPartiallyDesugaredNameWithScopeHandling(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, bool) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#49 0x00007fe30f1f7860 in TClassEdit::GetNormalizedName(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::basic_string_view<char, std::char_traits<char> >) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCore.so
+#50 0x00007fe30f21323e in TClass::GetClass(char const*, bool, bool, unsigned long, unsigned long) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCore.so
+#51 0x00007fe30f611f1d in TStreamerInfo::BuildCheck(TFile*, bool) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libRIO.so
+#52 0x00007fe30f5c0fdc in TFile::ReadStreamerInfo() () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libRIO.so
+#53 0x00007fe30f5cc3bc in TFile::Init(bool) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libRIO.so
+#54 0x00007fe306914c53 in TStorageFactoryFile::Initialize(char const*, char const*) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/lib/slc7_amd64_gcc10/libIOPoolTFileAdaptor.so
+#55 0x00007fe306915156 in TStorageFactoryFile::TStorageFactoryFile(char const*, char const*, char const*, int, int, bool) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/lib/slc7_amd64_gcc10/libIOPoolTFileAdaptor.so
+#56 0x00007fe2ef6000ae in ?? ()
+#57 0x00007fe200000000 in ?? ()
+#58 0x00007fe303b4c57d in llvm::FoldingSetBase::FindNodeOrInsertPos(llvm::FoldingSetNodeID const&, void*&) () from /cvmfs/cms.cern.ch/slc7_amd64_gcc10/cms/cmssw/CMSSW_12_4_3/external/slc7_amd64_gcc10/lib/libCling.so
+#59 0x00007fff4eee0ac0 in ?? ()
+#60 0x0000000500000006 in ?? ()
+#61 0x0000000000000000 in ?? ()
+
+Current Modules:
+
+Module: none (crashed)
+
+A fatal system signal has occurred: external termination request
